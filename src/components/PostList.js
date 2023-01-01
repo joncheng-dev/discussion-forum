@@ -11,22 +11,22 @@ function PostList() {
       title: "Testing Post 2",
       text: "Post 2 text here",
     },
+    {
+      title: "Testing Post 3",
+      text: "Post 3 text here",
+    },
+    {
+      title: "Testing Post 4",
+      text: "Post 4 text here",
+    },
   ];
-
-  const divStyle = {
-    color: "#D7DADC",
-    backgroundColor: "#242526",
-    padding: "10px",
-  };
 
   return (
     <React.Fragment>
-      <div style={divStyle}>
-        <h2>Post List</h2>
-        {postList.map((post) => (
-          <Post title={post.title} text={post.text} />
-        ))}
-      </div>
+      <h2>Post List</h2>
+      {postList.map((post) => (
+        <Post title={post.title} text={post.text} />
+      ))}
     </React.Fragment>
   );
 }
