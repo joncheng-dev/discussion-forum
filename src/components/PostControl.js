@@ -58,6 +58,14 @@ class PostControl extends React.Component {
     });
   };
 
+  handleDeletingPost = () => {
+    const newMainPostList = this.state.mainPostList.filter((post) => post.id !== this.state.selected.id);
+    this.setState({
+      mainPostList: newMainPostList,
+      selected: null,
+    });
+  };
+
   render() {
     let currentlyDisplayed = null;
     let buttonText = null;
@@ -66,7 +74,7 @@ class PostControl extends React.Component {
       currentlyDisplayed = <EditPostForm post={this.state.selected} onEditTicket={this.handleEditingPostInList} />;
       buttonText = "Return to Posts";
     } else if (this.state.selected !== null) {
-      currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} />;
+      currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} onDeleteClick={this.handleDeletingPost} />;
       buttonText = "Return to Posts";
     } else if (this.state.formShowing) {
       currentlyDisplayed = <NewPostForm onNewTicketCreation={this.handleAddingNewPostToList} />;
