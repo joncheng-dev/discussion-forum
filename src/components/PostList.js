@@ -6,7 +6,7 @@ function PostList(props) {
     <React.Fragment>
       <h2>Post List</h2>
       {props.postList.map((post) => (
-        <Post title={post.title} text={post.text} />
+        <Post whenPostClicked={props.onPostSelection} title={post.title} text={post.text} id={post.id} key={post.id} />
       ))}
     </React.Fragment>
   );

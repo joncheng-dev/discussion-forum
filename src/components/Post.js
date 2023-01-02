@@ -8,7 +8,7 @@ function Post(props) {
   };
   return (
     <React.Fragment>
-      <div style={divStyle}>
+      <div onClick={() => props.whenPostClicked(props.id)} style={divStyle}>
         <hr />
         <h3>{props.title}</h3>
         <p>{props.text}</p>

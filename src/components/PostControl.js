@@ -8,13 +8,20 @@ class PostControl extends React.Component {
     this.state = {
       formShowing: false,
       mainPostList: [],
+      selected: null,
     };
   }
 
   handleClick = () => {
-    this.setState((prevState) => ({
-      formShowing: !prevState.formShowing,
-    }));
+    if (this.state.selected !== null) {
+      this.setState({
+        selected: null,
+      });
+    } else {
+      this.setState((prevState) => ({
+        formShowing: !prevState.formShowing,
+      }));
+    }
   };
 
   handleAddingNewPostToList = (newPost) => {
@@ -25,15 +32,25 @@ class PostControl extends React.Component {
     });
   };
 
+  handleChangingSelectedPost = (id) => {
+    const selectedPost = this.state.mainPostList.filter((post) => post.id === id)[0];
+    this.setState({
+      selected: selectedPost,
+    });
+  };
+
   render() {
     let currentlyDisplayed = null;
     let buttonText = null;
 
-    if (this.state.formShowing) {
+    if (this.state.selected !== null) {
+      currentlyDisplayed = <PostDetail post={this.state.selected} />;
+      buttonText = "Return to Posts";
+    } else if (this.state.formShowing) {
       currentlyDisplayed = <NewPostForm onNewTicketCreation={this.handleAddingNewPostToList} />;
       buttonText = "Cancel";
     } else {
-      currentlyDisplayed = <PostList postList={this.state.mainPostList} />;
+      currentlyDisplayed = <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost} />;
       buttonText = "Create New Post";
     }
 
