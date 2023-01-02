@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
-import PostList from "./PostList";
+import PostControl from "./PostControl";
 import SideBar from "./SideBar";
 
 const PageStyle = styled.div`
@@ -41,7 +41,7 @@ function App() {
         </div>
         <div className="content-sidebar">
           <div className="col">
-            <PostList />
+            <PostControl />
           </div>
           <div className="col">
             <SideBar />
