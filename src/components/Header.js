@@ -5,15 +5,11 @@ function Header() {
   const ComponentStyle = styled.div`
     .nav-bar {
       display: flex;
-      flex-wrap: wrap;
+      align-items: flex-end;
     }
 
-    .nav-bar > *:nth-child(1) {
-      flex: 1 1 70%;
-    }
-
-    .nav-bar > *:nth-child(2) {
-      flex: 1 1 30%;
+    .nav-bar > * {
+      flex-basis: 100%;
     }
   `;
 
@@ -21,14 +17,14 @@ function Header() {
     <React.Fragment>
       <ComponentStyle>
         <div className="nav-bar">
-          <div className="col">
-            <h1>Discussion Forum</h1>
+          <div className="col-1">
+            <h2>Discussion Forum</h2>
           </div>
-          <div className="col">
-            <form>
-              <input name="login" placeholder="Login: " />
-              <button type="submit">Log In</button>
-            </form>
+          <div className="col-2">
+            <input placeholder="Search" />
+          </div>
+          <div className="col-3">
+            <button>Log In</button>
           </div>
         </div>
       </ComponentStyle>

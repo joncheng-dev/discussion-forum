@@ -11,8 +11,7 @@ const PageStyle = styled.div`
 
   .header {
     color: #eee;
-    margintop: -15;
-    paddingleft: 10;
+    background-color: gray;
   }
 
   .content-sidebar {
