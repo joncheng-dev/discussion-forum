@@ -11,7 +11,6 @@ const PageStyle = styled.div`
 
   .header {
     color: #eee;
-    height: 48px;
     margintop: -15;
     paddingleft: 10;
   }

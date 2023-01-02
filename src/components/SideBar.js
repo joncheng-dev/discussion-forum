@@ -3,7 +3,7 @@ import React from "react";
 function SideBar() {
   return (
     <React.Fragment>
-      <h3>Side Bar</h3>
+      <h2>Side Bar</h2>
     </React.Fragment>
   );
 }
