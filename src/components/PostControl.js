@@ -2,6 +2,7 @@ import React from "react";
 import NewPostForm from "./NewPostForm";
 import PostList from "./PostList";
 import PostDetail from "./PostDetail";
+import EditPostForm from "./EditPostForm";
 
 class PostControl extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class PostControl extends React.Component {
       formShowing: false,
       mainPostList: [],
       selected: null,
+      editing: false,
     };
   }
 
@@ -17,6 +19,7 @@ class PostControl extends React.Component {
     if (this.state.selected !== null) {
       this.setState({
         selected: null,
+        editing: false,
       });
     } else {
       this.setState((prevState) => ({
@@ -40,12 +43,30 @@ class PostControl extends React.Component {
     });
   };
 
+  handleEditClick = () => {
+    this.setState({
+      editing: true,
+    });
+  };
+
+  handleEditingPostInList = (postToEdit) => {
+    const newMainPostList = this.state.mainPostList.filter((post) => post.id !== this.state.selected.id).concat(postToEdit);
+    this.setState({
+      mainPostList: newMainPostList,
+      selected: null,
+      editing: false,
+    });
+  };
+
   render() {
     let currentlyDisplayed = null;
     let buttonText = null;
 
-    if (this.state.selected !== null) {
-      currentlyDisplayed = <PostDetail post={this.state.selected} />;
+    if (this.state.editing) {
+      currentlyDisplayed = <EditPostForm post={this.state.selected} onEditTicket={this.handleEditingPostInList} />;
+      buttonText = "Return to Posts";
+    } else if (this.state.selected !== null) {
+      currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} />;
       buttonText = "Return to Posts";
     } else if (this.state.formShowing) {
       currentlyDisplayed = <NewPostForm onNewTicketCreation={this.handleAddingNewPostToList} />;

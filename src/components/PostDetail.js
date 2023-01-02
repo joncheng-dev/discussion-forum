@@ -9,6 +9,7 @@ function PostDetail(props) {
       <h3>{post.title}</h3>
       <p>{post.text}</p>
       <hr />
+      <button onClick={props.onEditClick}>Edit Ticket</button>
     </React.Fragment>
   );
 }
