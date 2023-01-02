@@ -86,8 +86,8 @@ class PostControl extends React.Component {
 
     return (
       <React.Fragment>
-        <button onClick={this.handleClick}>{buttonText}</button>
         {currentlyDisplayed}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }

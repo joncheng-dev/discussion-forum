@@ -11,6 +11,7 @@ function PostDetail(props) {
       <hr />
       <button onClick={props.onEditClick}>Edit Ticket</button>
       <button onClick={props.onDeleteClick}>Delete Ticket</button>
+      <br />
     </React.Fragment>
   );
 }
