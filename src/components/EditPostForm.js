@@ -6,9 +6,10 @@ function EditPostForm(props) {
   function handleEditPostFormSubmission(event) {
     event.preventDefault();
 
-    props.onEditTicket({
+    props.onEditPost({
       title: event.target.title.value,
       text: event.target.text.value,
+      timeSubmitted: post.timeSubmitted,
       id: post.id,
     });
   }

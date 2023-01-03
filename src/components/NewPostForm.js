@@ -6,9 +6,10 @@ function NewPostForm(props) {
   function handleNewPostFormSubmission(event) {
     event.preventDefault();
 
-    props.onNewTicketCreation({
+    props.onNewPostCreation({
       title: event.target.title.value,
       text: event.target.text.value,
+      timeSubmitted: event.timeStamp,
       id: v4(),
     });
   }

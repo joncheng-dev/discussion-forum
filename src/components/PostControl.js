@@ -31,11 +31,12 @@ class PostControl extends React.Component {
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { title, text, id } = newPost;
+    const { title, text, timeSubmitted, id } = newPost;
     const action = {
       type: "ADD_POST",
       title: title,
       text: text,
+      timeSubmitted: timeSubmitted,
       id: id,
     };
     dispatch(action);
@@ -59,11 +60,12 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { title, text, id } = postToEdit;
+    const { title, text, timeSubmitted, id } = postToEdit;
     const action = {
       type: "ADD_POST",
       title: title,
       text: text,
+      timeSubmitted: timeSubmitted,
       id: id,
     };
     dispatch(action);
@@ -90,13 +92,13 @@ class PostControl extends React.Component {
     let buttonText = null;
 
     if (this.state.editing) {
-      currentlyDisplayed = <EditPostForm post={this.state.selected} onEditTicket={this.handleEditingPostInList} />;
+      currentlyDisplayed = <EditPostForm post={this.state.selected} onEditPost={this.handleEditingPostInList} />;
       buttonText = "Return to Posts";
     } else if (this.state.selected !== null) {
       currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} onDeleteClick={this.handleDeletingPost} />;
       buttonText = "Return to Posts";
     } else if (this.state.formShowing) {
-      currentlyDisplayed = <NewPostForm onNewTicketCreation={this.handleAddingNewPostToList} />;
+      currentlyDisplayed = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />;
       buttonText = "Cancel";
     } else {
       currentlyDisplayed = <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost} />;
