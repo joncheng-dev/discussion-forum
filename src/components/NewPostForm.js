@@ -9,7 +9,7 @@ function NewPostForm(props) {
     props.onNewPostCreation({
       title: event.target.title.value,
       text: event.target.text.value,
-      timeSubmitted: event.timeStamp,
+      timeSubmitted: Date.now(),
       id: v4(),
     });
   }
