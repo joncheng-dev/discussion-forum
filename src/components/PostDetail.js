@@ -1,7 +1,7 @@
 import React from "react";
 
 function PostDetail(props) {
-  const { post } = props;
+  const { post, onDeleteClick } = props;
   return (
     <React.Fragment>
       <h2>Post Detail</h2>
@@ -10,7 +10,7 @@ function PostDetail(props) {
       <p>{post.text}</p>
       <hr />
       <button onClick={props.onEditClick}>Edit Ticket</button>
-      <button onClick={props.onDeleteClick}>Delete Ticket</button>
+      <button onClick={() => onDeleteClick(post.id)}>Delete Ticket</button>
       <br />
     </React.Fragment>
   );

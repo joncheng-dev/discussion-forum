@@ -3,13 +3,14 @@ import NewPostForm from "./NewPostForm";
 import PostList from "./PostList";
 import PostDetail from "./PostDetail";
 import EditPostForm from "./EditPostForm";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       formShowing: false,
-      mainPostList: [],
       selected: null,
       editing: false,
     };
@@ -29,10 +30,17 @@ class PostControl extends React.Component {
   };
 
   handleAddingNewPostToList = (newPost) => {
-    const newMainPostList = this.state.mainPostList.concat(newPost);
+    const { dispatch } = this.props;
+    const { title, text, id } = newPost;
+    const action = {
+      type: "ADD_POST",
+      title: title,
+      text: text,
+      id: id,
+    };
+    dispatch(action);
     this.setState({
       formShowing: false,
-      mainPostList: newMainPostList,
     });
   };
 
@@ -50,18 +58,29 @@ class PostControl extends React.Component {
   };
 
   handleEditingPostInList = (postToEdit) => {
-    const newMainPostList = this.state.mainPostList.filter((post) => post.id !== this.state.selected.id).concat(postToEdit);
+    const { dispatch } = this.props;
+    const { title, text, id } = postToEdit;
+    const action = {
+      type: "ADD_POST",
+      title: title,
+      text: text,
+      id: id,
+    };
+    dispatch(action);
     this.setState({
-      mainPostList: newMainPostList,
       selected: null,
       editing: false,
     });
   };
 
-  handleDeletingPost = () => {
-    const newMainPostList = this.state.mainPostList.filter((post) => post.id !== this.state.selected.id);
+  handleDeletingPost = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: "DELETE_POST",
+      id: id,
+    };
+    dispatch(action);
     this.setState({
-      mainPostList: newMainPostList,
       selected: null,
     });
   };
@@ -92,5 +111,17 @@ class PostControl extends React.Component {
     );
   }
 }
+
+PostControl.propTypes = {
+  mainPostList: PropTypes.object,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    mainPostList: state,
+  };
+};
+
+PostControl = connect(mapStateToProps)(PostControl);
 
 export default PostControl;
