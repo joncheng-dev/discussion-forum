@@ -10,18 +10,19 @@ function Post(props) {
     .post-content {
       display: flex;
       flex-wrap: wrap;
+      border: 1px solid black;
     }
 
     // Upvote, score, downvote
     .post-content > *:nth-child(1) {
       flex: 1;
-      background-color: lightblue;
+      background-color: #777777;
     }
 
     // Picture
     .post-content > *:nth-child(2) {
       flex: 3;
-      background-color: blue;
+      background-color: #555555;
     }
 
     // Title, Link
@@ -29,7 +30,7 @@ function Post(props) {
     .post-content > *:nth-child(3) {
       flex: 17;
       justify-content: flex-start;
-      background-color: purple;
+      background-color: #999999;
     }
   `;
 
