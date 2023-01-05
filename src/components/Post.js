@@ -14,20 +14,21 @@ function Post(props) {
 
     // Upvote, score, downvote
     .post-content > *:nth-child(1) {
-      flex: 1 1 5%;
+      flex: 1;
       background-color: lightblue;
     }
 
     // Picture
     .post-content > *:nth-child(2) {
-      flex: 1 1 15%;
+      flex: 3;
       background-color: blue;
     }
 
     // Title, Link
     // Post Author, Time Posted Ago
     .post-content > *:nth-child(3) {
-      flex: 1 1 80%;
+      flex: 17;
+      justify-content: flex-start;
       background-color: purple;
     }
   `;
@@ -36,12 +37,11 @@ function Post(props) {
     <React.Fragment>
       <PostStyle>
         <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
-          <hr />
           <div className="left">
-            <p>V</p>
+            <p>Left</p>
           </div>
           <div className="mid">
-            <p>I</p>
+            <p>Mid</p>
           </div>
           <div className="right">
             <h3>{props.title}</h3>
@@ -50,7 +50,6 @@ function Post(props) {
               <em>{timeSince(props.timeSubmitted)}</em>
             </p>
           </div>
-          <hr />
         </div>
       </PostStyle>
     </React.Fragment>
