@@ -17,6 +17,22 @@ function Post(props) {
     .post-content > *:nth-child(1) {
       flex: 1;
       background-color: #777777;
+      flex-direction: column;
+    }
+
+    .left-column > *:nth-child(1) {
+      flex: 1;
+      background-color: red;
+    }
+
+    .left-column > *:nth-child(2) {
+      flex: 1;
+      background-color: white;
+    }
+
+    .left-column > *:nth-child(3) {
+      flex: 1;
+      background-color: blue;
     }
 
     // Picture
@@ -38,13 +54,21 @@ function Post(props) {
     <React.Fragment>
       <PostStyle>
         <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
-          <div className="left">
-            <p>Left</p>
+          <div className="left-column">
+            <div className="left-top">
+              <p>+</p>
+            </div>
+            <div className="left-mid">
+              <p>0</p>
+            </div>
+            <div className="left-bot">
+              <p>-</p>
+            </div>
           </div>
-          <div className="mid">
+          <div className="mid-column">
             <p>Mid</p>
           </div>
-          <div className="right">
+          <div className="right-column">
             <h3>{props.title}</h3>
             <p>{props.text}</p>
             <p>
