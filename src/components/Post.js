@@ -15,9 +15,12 @@ function Post(props) {
 
     // Upvote, score, downvote
     .post-content > *:nth-child(1) {
+      display: flex;
       flex: 1;
       background-color: #777777;
       flex-direction: column;
+      margin: auto;
+      align-items: center;
     }
 
     .left-column > *:nth-child(1) {
@@ -40,6 +43,7 @@ function Post(props) {
     .post-content > *:nth-child(2) {
       flex: 3;
       background-color: #555555;
+      margin: auto;
     }
 
     .post-image {
