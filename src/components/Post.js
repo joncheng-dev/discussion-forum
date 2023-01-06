@@ -22,23 +22,29 @@ function Post(props) {
 
     .left-column > *:nth-child(1) {
       flex: 1;
-      background-color: red;
+      background-color: #7393b3;
     }
 
     .left-column > *:nth-child(2) {
       flex: 1;
-      background-color: white;
+      background-color: #708090;
+      text-align: center;
     }
 
     .left-column > *:nth-child(3) {
       flex: 1;
-      background-color: blue;
+      background-color: #36454f;
     }
 
     // Picture
     .post-content > *:nth-child(2) {
       flex: 3;
       background-color: #555555;
+    }
+
+    .post-image {
+      display: block;
+      margin: auto;
     }
 
     // Title, Link
@@ -56,17 +62,17 @@ function Post(props) {
         <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
           <div className="left-column">
             <div className="left-top">
-              <p>+</p>
+              <button>+</button>
             </div>
             <div className="left-mid">
-              <p>0</p>
+              <p>score</p>
             </div>
             <div className="left-bot">
-              <p>-</p>
+              <button>-</button>
             </div>
           </div>
           <div className="mid-column">
-            <p>Mid</p>
+            <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder image of a lamb" />
           </div>
           <div className="right-column">
             <h3>{props.title}</h3>
