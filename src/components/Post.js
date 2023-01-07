@@ -23,18 +23,18 @@ function Post(props) {
       align-items: center;
     }
 
-    .left-column > *:nth-child(1) {
+    .score-column > *:nth-child(1) {
       flex: 1;
       background-color: #7393b3;
     }
 
-    .left-column > *:nth-child(2) {
+    .score-column > *:nth-child(2) {
       flex: 1;
       background-color: #708090;
       text-align: center;
     }
 
-    .left-column > *:nth-child(3) {
+    .score-column > *:nth-child(3) {
       flex: 1;
       background-color: #36454f;
     }
@@ -64,19 +64,19 @@ function Post(props) {
     <React.Fragment>
       <PostStyle>
         <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
-          <div className="left-column">
-            <div className="left-top">
+          <div className="score-column">
+            <div className="score-top">
               <button>+</button>
             </div>
-            <div className="left-mid">
+            <div className="score-mid">
               <p>score</p>
             </div>
-            <div className="left-bot">
+            <div className="score-bot">
               <button>-</button>
             </div>
           </div>
-          <div className="mid-column">
-            <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder image of a lamb" />
+          <div className="picture-column">
+            <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder a lamb" />
           </div>
           <div className="right-column">
             <h3>{props.title}</h3>
