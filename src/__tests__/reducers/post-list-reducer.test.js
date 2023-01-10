@@ -34,7 +34,7 @@ describe("postListReducer", () => {
       type: "ADD_POST",
       title: title,
       text: text,
-      timeSubmitted,
+      timeSubmitted: timeSubmitted,
       id: id,
     };
     expect(postListReducer({}, action)).toEqual({
