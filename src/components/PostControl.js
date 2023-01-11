@@ -10,7 +10,6 @@ class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formShowing: false,
       selected: null,
       editing: false,
     };
@@ -23,9 +22,11 @@ class PostControl extends React.Component {
         editing: false,
       });
     } else {
-      this.setState((prevState) => ({
-        formShowing: !prevState.formShowing,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: "TOGGLE_FORM",
+      };
+      dispatch(action);
     }
   };
 
@@ -40,9 +41,10 @@ class PostControl extends React.Component {
       id: id,
     };
     dispatch(action);
-    this.setState({
-      formShowing: false,
-    });
+    const action2 = {
+      type: "TOGGLE_FORM",
+    };
+    dispatch(action2);
   };
 
   handleChangingSelectedPost = (id) => {
@@ -97,7 +99,7 @@ class PostControl extends React.Component {
     } else if (this.state.selected !== null) {
       currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} onDeleteClick={this.handleDeletingPost} />;
       buttonText = "Return to Posts";
-    } else if (this.state.formShowing) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyDisplayed = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />;
       buttonText = "Cancel";
     } else {
@@ -116,11 +118,13 @@ class PostControl extends React.Component {
 
 PostControl.propTypes = {
   mainPostList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {
   return {
-    mainPostList: state,
+    mainPostList: state.mainPostList,
+    formVisibleOnPage: state.formVisibleOnPage,
   };
 };
 
