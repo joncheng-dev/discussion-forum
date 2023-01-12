@@ -1,5 +1,6 @@
 import React from "react";
 import timeSince from "./time-since";
+import PropTypes from "prop-types";
 
 function PostDetail(props) {
   const { post, onDeleteClick } = props;
@@ -20,5 +21,11 @@ function PostDetail(props) {
     </React.Fragment>
   );
 }
+
+PostDetail.propTypes = {
+  post: PropTypes.object,
+  onEditClick: PropTypes.func,
+  onDeleteClick: PropTypes.func,
+};
 
 export default PostDetail;

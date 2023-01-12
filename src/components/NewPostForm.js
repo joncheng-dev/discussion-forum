@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 } from "uuid";
 import ReusableForm from "./ReusableForm";
+import PropTypes from "prop-types";
 
 function NewPostForm(props) {
   function handleNewPostFormSubmission(event) {
@@ -21,5 +22,9 @@ function NewPostForm(props) {
     </React.Fragment>
   );
 }
+
+NewPostForm.propTypes = {
+  onNewPostCreation: PropTypes.func,
+};
 
 export default NewPostForm;
