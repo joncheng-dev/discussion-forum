@@ -12,6 +12,9 @@ function PostList(props) {
           title={post.title}
           text={post.text}
           timeSubmitted={post.timeSubmitted}
+          upvotes={post.upvotes}
+          downvotes={post.downvotes}
+          score={post.score}
           id={post.id}
           key={post.id}
         />

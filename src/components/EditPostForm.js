@@ -10,6 +10,9 @@ function EditPostForm(props) {
       title: event.target.title.value,
       text: event.target.text.value,
       timeSubmitted: post.timeSubmitted,
+      upvotes: post.upvotes,
+      downvotes: post.downvotes,
+      score: post.score,
       id: post.id,
     });
   }

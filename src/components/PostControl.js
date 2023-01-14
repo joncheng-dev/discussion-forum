@@ -32,12 +32,15 @@ class PostControl extends React.Component {
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, id } = newPost;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = newPost;
     const action = {
       type: "ADD_POST",
       title: title,
       text: text,
       timeSubmitted: timeSubmitted,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      score: score,
       id: id,
     };
     dispatch(action);
@@ -62,12 +65,15 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, id } = postToEdit;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToEdit;
     const action = {
       type: "ADD_POST",
       title: title,
       text: text,
       timeSubmitted: timeSubmitted,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      score: score,
       id: id,
     };
     dispatch(action);

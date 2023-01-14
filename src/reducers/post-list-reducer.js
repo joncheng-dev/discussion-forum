@@ -1,5 +1,5 @@
 const reducer = (state = {}, action) => {
-  const { title, text, timeSubmitted, id } = action;
+  const { title, text, timeSubmitted, upvotes, downvotes, score, id } = action;
   switch (action.type) {
     case "ADD_POST":
       return Object.assign({}, state, {
@@ -7,6 +7,9 @@ const reducer = (state = {}, action) => {
           title: title,
           text: text,
           timeSubmitted: timeSubmitted,
+          upvotes: upvotes,
+          downvotes: downvotes,
+          score: score,
           id: id,
         },
       });

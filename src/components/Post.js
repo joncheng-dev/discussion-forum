@@ -69,7 +69,7 @@ function Post(props) {
               <button>+</button>
             </div>
             <div className="score-mid">
-              <p>score</p>
+              <p>{props.score}</p>
             </div>
             <div className="score-bot">
               <button>-</button>
