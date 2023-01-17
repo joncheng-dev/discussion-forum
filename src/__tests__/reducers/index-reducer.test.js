@@ -2,6 +2,7 @@ import rootReducer from "../../reducers/index";
 import { createStore } from "redux";
 import formVisibleReducer from "../../reducers/form-visible-reducer";
 import postListReducer from "../../reducers/post-list-reducer";
+import voteCountReducer from "../../reducers/vote-count-reducer";
 
 let store = createStore(rootReducer);
 
@@ -10,6 +11,7 @@ describe("rootReducer", () => {
     expect(rootReducer({}, { type: null })).toEqual({
       mainPostList: {},
       formVisibleOnPage: false,
+      voteCounter: {},
     });
   });
   test("Check that initial state of postListReducer matches root reducer", () => {
@@ -17,6 +19,9 @@ describe("rootReducer", () => {
   });
   test("Check that initial state of formVisibleReducer matches root reducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
+  });
+  test("Check that initial state of voteCountReducer matches root reducer", () => {
+    expect(store.getState().voteCounter).toEqual(voteCountReducer(undefined, { type: null }));
   });
   test("Check that ADD_POST action works for postListReducer and root reducer", () => {
     const action = {
