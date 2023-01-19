@@ -66,6 +66,6 @@ describe("rootReducer", () => {
       id: id,
     };
     store.dispatch(action);
-    expect(store.getState().voteCountReducer).toEqual(voteCountReducer(undefined, action));
+    expect(store.getState().voteCounter).toEqual(voteCountReducer(undefined, action));
   });
 });
