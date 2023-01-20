@@ -95,6 +95,15 @@ class PostControl extends React.Component {
     });
   };
 
+  handleUpvoteClick = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: "UPVOTE",
+      id: id,
+    };
+    dispatch(action);
+  };
+
   render() {
     let currentlyDisplayed = null;
     let buttonText = null;
