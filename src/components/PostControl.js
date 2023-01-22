@@ -95,11 +95,11 @@ class PostControl extends React.Component {
     });
   };
 
-  handleUpvoteClick = (id) => {
+  handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
-    const postToUpvote = this.props.mainPostList[id];
+    const postToUpvote = this.props.mainPostList[postId];
     const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToUpvote;
-    action = {
+    const action = {
       type: "UPVOTE",
       title: title,
       text: text,
@@ -126,7 +126,9 @@ class PostControl extends React.Component {
       currentlyDisplayed = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />;
       buttonText = "Cancel";
     } else {
-      currentlyDisplayed = <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost} />;
+      currentlyDisplayed = (
+        <PostList postList={this.props.mainPostList} onUpvoteClick={this.handleUpvoteClick} onPostSelection={this.handleChangingSelectedPost} />
+      );
       buttonText = "Create New Post";
     }
 

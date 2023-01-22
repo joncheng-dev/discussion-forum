@@ -66,7 +66,7 @@ function Post(props) {
         <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
           <div className="score-column">
             <div className="score-top">
-              <button>+</button>
+              <button onClick={() => props.whenUpvoteClicked(props.id)}>+</button>
             </div>
             <div className="score-mid">
               <p>{props.score}</p>
