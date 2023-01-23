@@ -98,7 +98,7 @@ class PostControl extends React.Component {
   handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToUpvote = this.props.mainPostList[postId];
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToUpvote;
+    const { title, text, timeSubmitted, upvotes, downvotes, score } = postToUpvote;
     const action = {
       type: "UPVOTE",
       title: title,
@@ -107,7 +107,7 @@ class PostControl extends React.Component {
       upvotes: upvotes,
       downvotes: downvotes,
       score: score,
-      id: id,
+      id: postId,
     };
     dispatch(action);
   };
