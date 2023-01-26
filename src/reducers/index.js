@@ -6,7 +6,6 @@ import { combineReducers } from "redux";
 const rootReducer = combineReducers({
   formVisibleOnPage: formVisibleReducer,
   mainPostList: postListReducer,
-  voteCountReducer,
   // voteCounter: voteCountReducer,
 });
 

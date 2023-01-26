@@ -17,6 +17,30 @@ const reducer = (state = {}, action) => {
       const newState = { ...state };
       delete newState[id];
       return newState;
+    case "UPVOTE":
+      return Object.assign({}, state, {
+        [id]: {
+          title: title,
+          text: text,
+          timeSubmitted: timeSubmitted,
+          upvotes: upvotes + 1,
+          downvotes: downvotes,
+          score: score + 1,
+          id: id,
+        },
+      });
+    case "DOWNVOTE":
+      return Object.assign({}, state, {
+        [id]: {
+          title: title,
+          text: text,
+          timeSubmitted: timeSubmitted,
+          upvotes: upvotes,
+          downvotes: downvotes + 1,
+          score: score - 1,
+          id: id,
+        },
+      });
     default:
       return state;
   }
