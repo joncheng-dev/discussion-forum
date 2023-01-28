@@ -112,6 +112,23 @@ class PostControl extends React.Component {
     dispatch(action);
   };
 
+  handleDownvoteClick = (postId) => {
+    const { dispatch } = this.props;
+    const postToDownvote = this.props.mainPostList[postId];
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToDownvote;
+    const action = {
+      type: "DOWNVOTE",
+      title: title,
+      text: text,
+      timeSubmitted: timeSubmitted,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      score: score,
+      id: id,
+    };
+    dispatch(action);
+  };
+
   render() {
     let currentlyDisplayed = null;
     let buttonText = null;
@@ -127,7 +144,12 @@ class PostControl extends React.Component {
       buttonText = "Cancel";
     } else {
       currentlyDisplayed = (
-        <PostList postList={this.props.mainPostList} onUpvoteClick={this.handleUpvoteClick} onPostSelection={this.handleChangingSelectedPost} />
+        <PostList
+          postList={this.props.mainPostList}
+          onUpvoteClick={this.handleUpvoteClick}
+          onDownvoteClick={this.handleDownvoteClick}
+          onPostSelection={this.handleChangingSelectedPost}
+        />
       );
       buttonText = "Create New Post";
     }

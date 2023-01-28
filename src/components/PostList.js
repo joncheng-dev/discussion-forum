@@ -9,6 +9,7 @@ function PostList(props) {
       {Object.values(props.postList).map((post) => (
         <Post
           whenUpvoteClicked={props.onUpvoteClick}
+          whenDownvoteClicked={props.onDownvoteClick}
           whenPostClicked={props.onPostSelection}
           title={post.title}
           text={post.text}

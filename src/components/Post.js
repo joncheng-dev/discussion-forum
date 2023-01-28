@@ -63,26 +63,29 @@ function Post(props) {
   return (
     <React.Fragment>
       <PostStyle>
-        <button onClick={() => props.whenUpvoteClicked(props.id)}>+</button>
-        <div onClick={() => props.whenPostClicked(props.id)} className="post-content">
+        <div className="post-content">
           <div className="score-column">
-            <div className="score-top">{/* <button onClick={() => props.whenUpvoteClicked(props.id)}>+</button> */}</div>
+            <div className="score-top">
+              <button onClick={() => props.whenUpvoteClicked(props.id)}>+</button>
+            </div>
             <div className="score-mid">
               <p>{props.score}</p>
             </div>
             <div className="score-bot">
-              <button>-</button>
+              <button onClick={() => props.whenDownvoteClicked(props.id)}>-</button>
             </div>
           </div>
-          <div className="picture-column">
-            <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder a lamb" />
-          </div>
-          <div className="right-column">
-            <h3>{props.title}</h3>
-            <p>{props.text}</p>
-            <p>
-              <em>{timeSince(props.timeSubmitted)}</em>
-            </p>
+          <div onClick={() => props.whenPostClicked(props.id)} className="main-post">
+            <div className="picture-column">
+              <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder a lamb" />
+            </div>
+            <div className="right-column">
+              <h3>{props.title}</h3>
+              <p>{props.text}</p>
+              <p>
+                <em>{timeSince(props.timeSubmitted)}</em>
+              </p>
+            </div>
           </div>
         </div>
       </PostStyle>
