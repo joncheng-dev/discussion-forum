@@ -3,13 +3,15 @@ import postListReducer from "../../reducers/post-list-reducer";
 describe("postListReducer", () => {
   let action;
   const postData = {
-    title: "How rare is this cat?",
-    text: "Cat found with 5 toes on each paw!",
-    timeSubmitted: 1672731107482,
-    upvotes: 0,
-    downvotes: 0,
-    score: 0,
-    id: 1,
+    1: {
+      title: "How rare is this cat?",
+      text: "Cat found with 5 toes on each paw!",
+      timeSubmitted: 1672731107482,
+      upvotes: 0,
+      downvotes: 0,
+      score: 0,
+      id: 1,
+    },
   };
 
   const currentState = {
@@ -76,6 +78,30 @@ describe("postListReducer", () => {
         downvotes: 0,
         score: 0,
         id: 2,
+      },
+    });
+  });
+  test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postData;
+    action = {
+      type: "UPVOTE",
+      title: title,
+      text: text,
+      timeSubmitted: timeSubmitted,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      score: score,
+      id: id,
+    };
+    expect(postListReducer(postData, action)).toEqual({
+      1: {
+        title: "How rare is this cat?",
+        text: "Cat found with 5 toes on each paw!",
+        timeSubmitted: 1672731107482,
+        upvotes: 1,
+        downvotes: 0,
+        score: 1,
+        id: 1,
       },
     });
   });
