@@ -23,25 +23,33 @@ function Post(props) {
       align-items: center;
     }
 
-    .score-column > *:nth-child(1) {
+    .post-score-column > *:nth-child(1) {
       flex: 1;
       background-color: #7393b3;
     }
 
-    .score-column > *:nth-child(2) {
+    .post-score-column > *:nth-child(2) {
       flex: 1;
       background-color: #708090;
       text-align: center;
     }
 
-    .score-column > *:nth-child(3) {
+    .post-score-column > *:nth-child(3) {
       flex: 1;
       background-color: #36454f;
     }
 
-    // Picture
+    // Post Body
     .post-content > *:nth-child(2) {
-      flex: 3;
+      display: flex;
+      flex: 25;
+      background-color: #777777;
+      margin: auto;
+    }
+
+    // Picture
+    .post-body > *:nth-child(1) {
+      flex: 2;
       background-color: #555555;
       margin: auto;
     }
@@ -49,12 +57,13 @@ function Post(props) {
     .post-image {
       display: block;
       margin: auto;
+      align-items: center;
     }
 
     // Title, Link
     // Post Author, Time Posted Ago
-    .post-content > *:nth-child(3) {
-      flex: 17;
+    .post-body > *:nth-child(2) {
+      flex: 8;
       justify-content: flex-start;
       background-color: #999999;
     }
@@ -64,7 +73,7 @@ function Post(props) {
     <React.Fragment>
       <PostStyle>
         <div className="post-content">
-          <div className="score-column">
+          <div className="post-score-column">
             <div className="score-top">
               <button onClick={() => props.whenUpvoteClicked(props.id)}>+</button>
             </div>
@@ -75,11 +84,11 @@ function Post(props) {
               <button onClick={() => props.whenDownvoteClicked(props.id)}>-</button>
             </div>
           </div>
-          <div onClick={() => props.whenPostClicked(props.id)} className="main-post">
+          <div onClick={() => props.whenPostClicked(props.id)} className="post-body">
             <div className="picture-column">
               <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder a lamb" />
             </div>
-            <div className="right-column">
+            <div className="content-column">
               <h3>{props.title}</h3>
               <p>{props.text}</p>
               <p>
