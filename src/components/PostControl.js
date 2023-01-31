@@ -169,8 +169,25 @@ PostControl.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  // function sortPostsByScore(a, b) {
+  //   const score1 = a.score;
+  //   const score2 = b.score;
+
+  //   let comparison = 0;
+
+  //   if (score1 > score2) {
+  //     comparison = 1;
+  //   } else if (score1 < score2) {
+  //     comparison = -1;
+  //   }
+  //   return comparison;
+  // }
+
+  const orderedPostList = state.mainPostList.score.sort((a, b) => (a.score > b.score ? 1 : -1));
+
   return {
-    mainPostList: state.mainPostList,
+    mainPostList: orderedPostList,
+    // mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage,
   };
 };
