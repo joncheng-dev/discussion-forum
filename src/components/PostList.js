@@ -27,6 +27,8 @@ function PostList(props) {
 
 PostList.propTypes = {
   postList: PropTypes.object,
+  onUpvoteClick: PropTypes.func,
+  onDownvoteClick: PropTypes.func,
   onPostSelection: PropTypes.func,
 };
 

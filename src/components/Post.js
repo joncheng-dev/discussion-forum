@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import timeSince from "./time-since";
+import PropTypes from "prop-types";
 
 function Post(props) {
   const PostStyle = styled.div`
@@ -101,5 +102,16 @@ function Post(props) {
     </React.Fragment>
   );
 }
+
+Post.propTypes = {
+  whenUpvoteClicked: PropTypes.func,
+  whenDownvoteClicked: PropTypes.func,
+  whenPostClicked: PropTypes.func,
+  id: PropTypes.string,
+  score: PropTypes.number,
+  title: PropTypes.string,
+  text: PropTypes.string,
+  timeSubmitted: PropTypes.number,
+};
 
 export default Post;

@@ -183,11 +183,11 @@ const mapStateToProps = (state) => {
   //   return comparison;
   // }
 
-  const orderedPostList = state.mainPostList.score.sort((a, b) => (a.score > b.score ? 1 : -1));
+  // const orderedPostList = state.mainPostList.score.sort((a, b) => (a.score > b.score ? 1 : -1));
 
   return {
-    mainPostList: orderedPostList,
-    // mainPostList: state.mainPostList,
+    // mainPostList: orderedPostList,
+    mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage,
   };
 };
