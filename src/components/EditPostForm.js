@@ -1,5 +1,6 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
+import PropTypes from "prop-types";
 
 function EditPostForm(props) {
   const { post } = props;
@@ -23,5 +24,9 @@ function EditPostForm(props) {
     </React.Fragment>
   );
 }
+
+EditPostForm.propTypes = {
+  onEditPost: PropTypes.func,
+};
 
 export default EditPostForm;
