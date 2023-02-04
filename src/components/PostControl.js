@@ -11,18 +11,24 @@ class PostControl extends React.Component {
     super(props);
     this.state = {
       selected: null,
-      editing: false,
     };
   }
 
   handleClick = () => {
-    if (this.state.selected !== null) {
+    const { dispatch } = this.props;
+    if (this.props.editing) {
+      const action = {
+        type: "EDIT_FORM_TOGGLE",
+      };
+      dispatch(action);
       this.setState({
         selected: null,
-        editing: false,
+      });
+    } else if (this.state.selected !== null) {
+      this.setState({
+        selected: null,
       });
     } else {
-      const { dispatch } = this.props;
       const action = {
         type: "TOGGLE_FORM",
       };
@@ -58,9 +64,11 @@ class PostControl extends React.Component {
   };
 
   handleEditClick = () => {
-    this.setState({
-      editing: true,
-    });
+    const { dispatch } = this.props;
+    const action = {
+      type: "EDIT_FORM_TOGGLE",
+    };
+    dispatch(action);
   };
 
   handleEditingPostInList = (postToEdit) => {
@@ -77,9 +85,12 @@ class PostControl extends React.Component {
       id: id,
     };
     dispatch(action);
+    const action2 = {
+      type: "EDIT_FORM_TOGGLE",
+    };
+    dispatch(action2);
     this.setState({
       selected: null,
-      editing: false,
     });
   };
 
@@ -133,7 +144,7 @@ class PostControl extends React.Component {
     let currentlyDisplayed = null;
     let buttonText = null;
 
-    if (this.state.editing) {
+    if (this.props.editing) {
       currentlyDisplayed = <EditPostForm post={this.state.selected} onEditPost={this.handleEditingPostInList} />;
       buttonText = "Return to Posts";
     } else if (this.state.selected !== null) {
@@ -166,6 +177,7 @@ class PostControl extends React.Component {
 PostControl.propTypes = {
   mainPostList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
+  editing: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {
@@ -189,6 +201,7 @@ const mapStateToProps = (state) => {
     // mainPostList: orderedPostList,
     mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage,
+    editing: state.editing,
   };
 };
 
