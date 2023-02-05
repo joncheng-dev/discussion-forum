@@ -2,7 +2,7 @@ import rootReducer from "../../reducers/index";
 import { createStore } from "redux";
 import formVisibleReducer from "../../reducers/form-visible-reducer";
 import postListReducer from "../../reducers/post-list-reducer";
-import voteCountReducer from "../../reducers/vote-count-reducer";
+import formEditReducer from "../../reducers/form-edit-reducer";
 
 let store = createStore(rootReducer);
 
