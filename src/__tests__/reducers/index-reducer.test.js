@@ -11,7 +11,6 @@ describe("rootReducer", () => {
     expect(rootReducer({}, { type: null })).toEqual({
       mainPostList: {},
       formVisibleOnPage: false,
-      voteCounter: {},
     });
   });
   test("Check that initial state of postListReducer matches root reducer", () => {
@@ -19,9 +18,6 @@ describe("rootReducer", () => {
   });
   test("Check that initial state of formVisibleReducer matches root reducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
-  });
-  test("Check that initial state of voteCountReducer matches root reducer", () => {
-    expect(store.getState().voteCounter).toEqual(voteCountReducer(undefined, { type: null }));
   });
   test("Check that ADD_POST action works for postListReducer and root reducer", () => {
     const action = {
@@ -44,7 +40,7 @@ describe("rootReducer", () => {
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
   });
-  test("Check that UPVOTE action works for voteCountReducer and root reducer", () => {
+  test("Check that UPVOTE action works for postListReducer and root reducer", () => {
     const postData = {
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
@@ -66,6 +62,6 @@ describe("rootReducer", () => {
       id: id,
     };
     store.dispatch(action);
-    expect(store.getState().voteCounter).toEqual(voteCountReducer(undefined, action));
+    expect(store.getState().voteCounter).toEqual(postListReducer(undefined, action));
   });
 });
