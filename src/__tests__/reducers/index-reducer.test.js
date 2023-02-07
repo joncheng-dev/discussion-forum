@@ -11,6 +11,7 @@ describe("rootReducer", () => {
     expect(rootReducer({}, { type: null })).toEqual({
       mainPostList: {},
       formVisibleOnPage: false,
+      editing: false,
     });
   });
   test("Check that initial state of postListReducer matches root reducer", () => {
