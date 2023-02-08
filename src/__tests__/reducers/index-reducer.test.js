@@ -20,6 +20,9 @@ describe("rootReducer", () => {
   test("Check that initial state of formVisibleReducer matches root reducer", () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
   });
+  test("Check that initial state of formEditReducer matches root reducer", () => {
+    expect(store.getState().editing).toEqual(formEditReducer(undefined, { type: null }));
+  });
   test("Check that ADD_POST action works for postListReducer and root reducer", () => {
     const action = {
       type: "ADD_POST",
