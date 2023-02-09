@@ -33,6 +33,7 @@ describe("rootReducer", () => {
       downvotes: 0,
       score: 0,
       id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     };
     store.dispatch(action);
     expect(store.getState().mainPostList).toEqual(postListReducer(undefined, action));
@@ -53,8 +54,9 @@ describe("rootReducer", () => {
       downvotes: 0,
       score: 3,
       id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     };
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postData;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
     const action = {
       type: "UPVOTE",
       title: title,
@@ -64,6 +66,7 @@ describe("rootReducer", () => {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     store.dispatch(action);
     expect(store.getState().mainPostList).toEqual(postListReducer(undefined, action));

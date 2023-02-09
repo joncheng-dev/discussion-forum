@@ -15,6 +15,7 @@ function EditPostForm(props) {
       downvotes: post.downvotes,
       score: post.score,
       id: post.id,
+      imageUrl: event.target.imageUrl.value,
     });
   }
   return (

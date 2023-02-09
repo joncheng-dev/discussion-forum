@@ -11,6 +11,7 @@ describe("postListReducer", () => {
       downvotes: 0,
       score: 0,
       id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     },
   };
 
@@ -23,6 +24,7 @@ describe("postListReducer", () => {
       downvotes: 0,
       score: 0,
       id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     },
     2: {
       title: "Dog being derp!",
@@ -32,6 +34,7 @@ describe("postListReducer", () => {
       downvotes: 0,
       score: 0,
       id: 2,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     },
   };
 
@@ -40,7 +43,7 @@ describe("postListReducer", () => {
   });
 
   test("Should successfully add new post data to mainPostList", () => {
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postData;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
     action = {
       type: "ADD_POST",
       title: title,
@@ -50,6 +53,7 @@ describe("postListReducer", () => {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     expect(postListReducer({}, action)).toEqual({
       [id]: {
@@ -60,6 +64,7 @@ describe("postListReducer", () => {
         downvotes: downvotes,
         score: score,
         id: id,
+        imageUrl: imageUrl,
       },
     });
   });
@@ -78,11 +83,12 @@ describe("postListReducer", () => {
         downvotes: 0,
         score: 0,
         id: 2,
+        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       },
     });
   });
   test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postData;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
     action = {
       type: "UPVOTE",
       title: title,
@@ -92,6 +98,7 @@ describe("postListReducer", () => {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     expect(postListReducer({}, action)).toEqual({
       [id]: {
@@ -102,6 +109,7 @@ describe("postListReducer", () => {
         downvotes: downvotes,
         score: score + 1,
         id: id,
+        imageUrl: imageUrl,
       },
     });
   });

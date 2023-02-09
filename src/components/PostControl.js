@@ -38,7 +38,7 @@ class PostControl extends React.Component {
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = newPost;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = newPost;
     const action = {
       type: "ADD_POST",
       title: title,
@@ -48,6 +48,7 @@ class PostControl extends React.Component {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     dispatch(action);
     const action2 = {
@@ -73,7 +74,7 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToEdit;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
     const action = {
       type: "ADD_POST",
       title: title,
@@ -83,6 +84,7 @@ class PostControl extends React.Component {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     dispatch(action);
     const action2 = {
@@ -109,7 +111,7 @@ class PostControl extends React.Component {
   handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToUpvote = this.props.mainPostList[postId];
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToUpvote;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToUpvote;
     const action = {
       type: "UPVOTE",
       title: title,
@@ -119,6 +121,7 @@ class PostControl extends React.Component {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     dispatch(action);
   };
@@ -126,7 +129,7 @@ class PostControl extends React.Component {
   handleDownvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToDownvote = this.props.mainPostList[postId];
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id } = postToDownvote;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToDownvote;
     const action = {
       type: "DOWNVOTE",
       title: title,
@@ -136,6 +139,7 @@ class PostControl extends React.Component {
       downvotes: downvotes,
       score: score,
       id: id,
+      imageUrl: imageUrl,
     };
     dispatch(action);
   };

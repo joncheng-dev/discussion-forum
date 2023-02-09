@@ -19,6 +19,7 @@ function PostList(props) {
           score={post.score}
           id={post.id}
           key={post.id}
+          imageUrl={post.imageUrl}
         />
       ))}
     </React.Fragment>

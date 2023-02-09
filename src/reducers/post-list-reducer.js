@@ -1,5 +1,5 @@
 const reducer = (state = {}, action) => {
-  const { title, text, timeSubmitted, upvotes, downvotes, score, id } = action;
+  const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = action;
   switch (action.type) {
     case "ADD_POST":
       return Object.assign({}, state, {
@@ -11,6 +11,7 @@ const reducer = (state = {}, action) => {
           downvotes: downvotes,
           score: score,
           id: id,
+          imageUrl: imageUrl,
         },
       });
     case "DELETE_POST":
@@ -27,6 +28,7 @@ const reducer = (state = {}, action) => {
           downvotes: downvotes,
           score: score + 1,
           id: id,
+          imageUrl: imageUrl,
         },
       });
     case "DOWNVOTE":
@@ -39,6 +41,7 @@ const reducer = (state = {}, action) => {
           downvotes: downvotes + 1,
           score: score - 1,
           id: id,
+          imageUrl: imageUrl,
         },
       });
     default:

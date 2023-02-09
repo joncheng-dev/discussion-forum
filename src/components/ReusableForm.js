@@ -11,6 +11,9 @@ function ReusableForm(props) {
         <textarea name="text" placeholder="Text (optional)" />
         <br />
         <br />
+        <input type="text" name="imageUrl" placeholder="Image URL (optional)" />
+        <br />
+        <br />
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

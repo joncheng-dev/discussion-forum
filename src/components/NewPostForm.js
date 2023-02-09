@@ -14,6 +14,7 @@ function NewPostForm(props) {
       upvotes: 0,
       downvotes: 0,
       score: 0,
+      imageUrl: event.target.imageUrl.value,
       id: v4(),
     });
   }

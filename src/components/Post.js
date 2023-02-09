@@ -87,7 +87,7 @@ function Post(props) {
           </div>
           <div onClick={() => props.whenPostClicked(props.id)} className="post-body">
             <div className="picture-column">
-              <img className="post-image" src="https://www.w3.org/Style/Woolly/woolly-mc.png" alt="placeholder a lamb" />
+              <img className="post-image" src={props.imageUrl} alt="placeholder a lamb" />
             </div>
             <div className="content-column">
               <h3>{props.title}</h3>
@@ -108,6 +108,7 @@ Post.propTypes = {
   whenDownvoteClicked: PropTypes.func,
   whenPostClicked: PropTypes.func,
   id: PropTypes.string,
+  // imageUrl: PropTypes.string,
   score: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
