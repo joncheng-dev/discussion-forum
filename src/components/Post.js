@@ -89,7 +89,7 @@ function Post(props) {
           </div>
           <div onClick={() => props.whenPostClicked(props.id)} className="post-body">
             <div className="picture-column">
-              <img className="post-image" src={props.imageUrl} alt="placeholder a lamb" />
+              <img className="post-image" src={props.imageUrl} alt="placeholder for image" />
             </div>
             <div className="content-column">
               <h3>{props.title}</h3>
