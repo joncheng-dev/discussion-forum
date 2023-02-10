@@ -56,7 +56,9 @@ function Post(props) {
     }
 
     .post-image {
-      display: block;
+      display: flex;
+      width: 50%;
+      height: auto;
       margin: auto;
       align-items: center;
     }
