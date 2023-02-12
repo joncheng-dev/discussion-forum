@@ -20,7 +20,7 @@ function PostDetail(props) {
       flex: 1;
       background-color: #777777;
       flex-direction: column;
-      margin: auto;
+      align-content: flex-start;
       align-items: center;
       border: 5px solid yellow;
     }
@@ -29,6 +29,7 @@ function PostDetail(props) {
       // flex: 1;
       flex-direction: column;
       background-color: #7393b3;
+      border: 2px solid red;
     }
 
     .post-score-column > *:nth-child(2) {
@@ -36,12 +37,14 @@ function PostDetail(props) {
       flex-direction: column;
       background-color: #708090;
       text-align: center;
+      border: 2px solid blue;
     }
 
     .post-score-column > *:nth-child(3) {
       // flex: 1;
       flex-direction: column;
       background-color: #36454f;
+      border: 2px solid goldenrod;
     }
 
     // Post Body
