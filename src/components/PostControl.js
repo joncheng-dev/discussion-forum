@@ -152,7 +152,15 @@ class PostControl extends React.Component {
       currentlyDisplayed = <EditPostForm post={this.state.selected} onEditPost={this.handleEditingPostInList} />;
       buttonText = "Return to Posts";
     } else if (this.state.selected !== null) {
-      currentlyDisplayed = <PostDetail post={this.state.selected} onEditClick={this.handleEditClick} onDeleteClick={this.handleDeletingPost} />;
+      currentlyDisplayed = (
+        <PostDetail
+          post={this.state.selected}
+          whenUpvoteClicked={this.handleUpvoteClick}
+          whenDownvoteClicked={this.handleDownvoteClick}
+          onEditClick={this.handleEditClick}
+          onDeleteClick={this.handleDeletingPost}
+        />
+      );
       buttonText = "Return to Posts";
     } else if (this.props.formVisibleOnPage) {
       currentlyDisplayed = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />;

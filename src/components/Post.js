@@ -3,75 +3,75 @@ import styled from "styled-components";
 import timeSince from "./time-since";
 import PropTypes from "prop-types";
 
+const PostStyle = styled.div`
+  color: white;
+  background-color: #3a3b3c;
+
+  .post-content {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+  }
+
+  // Upvote, score, downvote
+  .post-content > *:nth-child(1) {
+    display: flex;
+    flex: 1;
+    background-color: #777777;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+  }
+
+  .post-score-column > *:nth-child(1) {
+    flex: 1;
+    background-color: #7393b3;
+  }
+
+  .post-score-column > *:nth-child(2) {
+    flex: 1;
+    background-color: #708090;
+    text-align: center;
+  }
+
+  .post-score-column > *:nth-child(3) {
+    flex: 1;
+    background-color: #36454f;
+  }
+
+  // Post Body
+  .post-content > *:nth-child(2) {
+    display: flex;
+    flex: 25;
+    background-color: #777777;
+    margin: auto;
+  }
+
+  // Picture
+  .post-body > *:nth-child(1) {
+    flex: 2;
+    background-color: #555555;
+    margin: auto;
+  }
+
+  .post-image {
+    display: flex;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    align-items: center;
+  }
+
+  // Title, Link
+  // Post Author, Time Posted Ago
+  .post-body > *:nth-child(2) {
+    flex: 8;
+    justify-content: flex-start;
+    background-color: #999999;
+  }
+`;
+
 function Post(props) {
-  const PostStyle = styled.div`
-    color: white;
-    background-color: #3a3b3c;
-
-    .post-content {
-      display: flex;
-      flex-wrap: wrap;
-      border: 1px solid black;
-    }
-
-    // Upvote, score, downvote
-    .post-content > *:nth-child(1) {
-      display: flex;
-      flex: 1;
-      background-color: #777777;
-      flex-direction: column;
-      margin: auto;
-      align-items: center;
-    }
-
-    .post-score-column > *:nth-child(1) {
-      flex: 1;
-      background-color: #7393b3;
-    }
-
-    .post-score-column > *:nth-child(2) {
-      flex: 1;
-      background-color: #708090;
-      text-align: center;
-    }
-
-    .post-score-column > *:nth-child(3) {
-      flex: 1;
-      background-color: #36454f;
-    }
-
-    // Post Body
-    .post-content > *:nth-child(2) {
-      display: flex;
-      flex: 25;
-      background-color: #777777;
-      margin: auto;
-    }
-
-    // Picture
-    .post-body > *:nth-child(1) {
-      flex: 2;
-      background-color: #555555;
-      margin: auto;
-    }
-
-    .post-image {
-      display: flex;
-      width: 50%;
-      height: auto;
-      margin: auto;
-      align-items: center;
-    }
-
-    // Title, Link
-    // Post Author, Time Posted Ago
-    .post-body > *:nth-child(2) {
-      flex: 8;
-      justify-content: flex-start;
-      background-color: #999999;
-    }
-  `;
-
   return (
     <React.Fragment>
       <PostStyle>
