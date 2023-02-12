@@ -10,8 +10,8 @@ function PostDetail(props) {
 
     .post-content {
       display: flex;
-      flex-wrap: wrap;
-      border: 1px solid black;
+      flex-direction: row;
+      border: 10px solid lightblue;
     }
 
     // Upvote, score, downvote
@@ -22,30 +22,37 @@ function PostDetail(props) {
       flex-direction: column;
       margin: auto;
       align-items: center;
+      border: 5px solid yellow;
     }
 
     .post-score-column > *:nth-child(1) {
       // flex: 1;
+      flex-direction: column;
       background-color: #7393b3;
     }
 
     .post-score-column > *:nth-child(2) {
       // flex: 1;
+      flex-direction: column;
       background-color: #708090;
       text-align: center;
     }
 
     .post-score-column > *:nth-child(3) {
       // flex: 1;
+      flex-direction: column;
       background-color: #36454f;
     }
 
     // Post Body
-    .post-content > *nth-child(2) {
+    .post-content > *:nth-child(2) {
       display: flex;
-      flex: 25;
+      flex: 50;
       background-color: #777777;
+      flex-direction: column;
       margin: auto;
+      align-items: flex-start;
+      border: 5px solid purple;
     }
   `;
 
