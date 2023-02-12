@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import timeSince from "./time-since";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
 const PostDetailStyle = styled.div`
   color: white;
@@ -59,8 +60,8 @@ const PostDetailStyle = styled.div`
 `;
 
 function PostDetail(props) {
-  const { post, onDeleteClick } = props;
-
+  const { postId, onDeleteClick } = props;
+  const post = useSelector((state) => state.mainPostList[postId]);
   return (
     <React.Fragment>
       <PostDetailStyle>

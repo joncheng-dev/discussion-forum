@@ -58,9 +58,10 @@ class PostControl extends React.Component {
   };
 
   handleChangingSelectedPost = (id) => {
-    const selectedPost = this.props.mainPostList[id];
+    // const selectedPost = this.props.mainPostList[id];
     this.setState({
-      selected: selectedPost,
+      // selected: selectedPost,
+      selected: id,
     });
   };
 
@@ -154,7 +155,7 @@ class PostControl extends React.Component {
     } else if (this.state.selected !== null) {
       currentlyDisplayed = (
         <PostDetail
-          post={this.state.selected}
+          postId={this.state.selected}
           whenUpvoteClicked={this.handleUpvoteClick}
           whenDownvoteClicked={this.handleDownvoteClick}
           onEditClick={this.handleEditClick}
