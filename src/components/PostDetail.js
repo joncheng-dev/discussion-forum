@@ -11,7 +11,8 @@ const PostDetailStyle = styled.div`
   .post-content {
     display: flex;
     flex-direction: row;
-    border: 10px solid lightblue;
+    // border: 10px solid lightblue;
+    border: 1px solid white;
   }
 
   // Upvote, score, downvote
@@ -22,40 +23,41 @@ const PostDetailStyle = styled.div`
     flex-direction: column;
     align-content: flex-start;
     align-items: center;
-    border: 5px solid yellow;
+    // border: 5px solid yellow;
   }
 
   .post-score-column > *:nth-child(1) {
     // flex: 1;
     flex-direction: column;
-    background-color: #7393b3;
-    border: 2px solid red;
+    // background-color: #7393b3;
+    // border: 2px solid red;
   }
 
   .post-score-column > *:nth-child(2) {
     // flex: 1;
     flex-direction: column;
-    background-color: #708090;
+    // background-color: #708090;
     text-align: center;
-    border: 2px solid blue;
+    // border: 2px solid blue;
   }
 
   .post-score-column > *:nth-child(3) {
     // flex: 1;
     flex-direction: column;
-    background-color: #36454f;
-    border: 2px solid goldenrod;
+    // background-color: #36454f;
+    // border: 2px solid goldenrod;
   }
 
   // Post Body
   .post-content > *:nth-child(2) {
     display: flex;
     flex: 50;
-    background-color: #777777;
+    // background-color: #777777;
     flex-direction: column;
     margin: auto;
+    padding-left: 15px;
     align-items: flex-start;
-    border: 5px solid purple;
+    // border: 5px solid purple;
   }
 `;
 
@@ -81,7 +83,7 @@ function PostDetail(props) {
           </div>
           <div className="post-body">
             <h3>{post.title}</h3>
-            <img className="post-image" src={post.imageUrl} alt="placeholder for image" />
+            <img className="post-image" src={post.imageUrl} alt="" />
             <p>{post.text}</p>
             <p>
               <em>{timeSince(post.timeSubmitted)}</em>

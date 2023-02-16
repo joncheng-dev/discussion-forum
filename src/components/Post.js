@@ -10,7 +10,8 @@ const PostStyle = styled.div`
   .post-content {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    // border: 1px solid black;
+    border: 1px solid white;
   }
 
   // Upvote, score, downvote
@@ -25,32 +26,32 @@ const PostStyle = styled.div`
 
   .post-score-column > *:nth-child(1) {
     flex: 1;
-    background-color: #7393b3;
+    // background-color: #7393b3;
   }
 
   .post-score-column > *:nth-child(2) {
     flex: 1;
-    background-color: #708090;
+    // background-color: #708090;
     text-align: center;
   }
 
   .post-score-column > *:nth-child(3) {
     flex: 1;
-    background-color: #36454f;
+    // background-color: #36454f;
   }
 
   // Post Body
   .post-content > *:nth-child(2) {
     display: flex;
     flex: 25;
-    background-color: #777777;
+    // background-color: #777777;
     margin: auto;
   }
 
   // Picture
   .post-body > *:nth-child(1) {
     flex: 2;
-    background-color: #555555;
+    // background-color: #555555;
     margin: auto;
   }
 
@@ -67,7 +68,7 @@ const PostStyle = styled.div`
   .post-body > *:nth-child(2) {
     flex: 8;
     justify-content: flex-start;
-    background-color: #999999;
+    // background-color: #999999;
   }
 `;
 
@@ -89,7 +90,7 @@ function Post(props) {
           </div>
           <div onClick={() => props.whenPostClicked(props.id)} className="post-body">
             <div className="picture-column">
-              <img className="post-image" src={props.imageUrl} alt="placeholder for image" />
+              <img className="post-image" src={props.imageUrl} alt="" />
             </div>
             <div className="content-column">
               <h3>{props.title}</h3>
