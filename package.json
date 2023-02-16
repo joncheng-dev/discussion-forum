@@ -1,9 +1,7 @@
 {
   "name": "discussion-forum",
   "version": "0.1.0",
-  "repository": {
-    "url": "git+https://github.com/theJonCheng/discussion-forum.git"
-  },
+  "homepage": "https://thejoncheng.github.io/discussion-forum",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
