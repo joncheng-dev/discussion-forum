@@ -18,6 +18,16 @@ const reducer = (state = {}, action) => {
       const newState = { ...state };
       delete newState[id];
       return newState;
+    case "EDIT_POST":
+      return {
+        ...state,
+        [id]: {
+          title: action.title,
+          text: action.text,
+          imageUrl: action.imageUrl,
+          ...state[id],
+        },
+      };
     case "UPVOTE":
       return Object.assign({}, state, {
         [id]: {

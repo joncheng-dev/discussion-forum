@@ -69,6 +69,6 @@ describe("rootReducer", () => {
       imageUrl: imageUrl,
     };
     store.dispatch(action);
-    expect(store.getState().mainPostList).toEqual(postListReducer(undefined, action));
+    expect(store.getState().mainPostList).toEqual(postListReducer({}, action));
   });
 });

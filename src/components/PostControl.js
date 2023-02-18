@@ -76,8 +76,9 @@ class PostControl extends React.Component {
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
     const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
+    // const { title, text, id, imageUrl } = postToEdit;
     const action = {
-      type: "ADD_POST",
+      type: "EDIT_POST",
       title: title,
       text: text,
       timeSubmitted: timeSubmitted,
