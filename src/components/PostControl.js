@@ -58,9 +58,7 @@ class PostControl extends React.Component {
   };
 
   handleChangingSelectedPost = (id) => {
-    // const selectedPost = this.props.mainPostList[id];
     this.setState({
-      // selected: selectedPost,
       selected: id,
     });
   };
@@ -75,19 +73,14 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
+    const { title, text, id, imageUrl } = postToEdit;
     const action = {
       type: "EDIT_POST",
       title: title,
       text: text,
-      timeSubmitted: timeSubmitted,
-      upvotes: upvotes,
-      downvotes: downvotes,
-      score: score,
       id: id,
       imageUrl: imageUrl,
     };
-    console.log("Action before dispatch:", action);
     dispatch(action);
     const action2 = {
       type: "EDIT_FORM_TOGGLE",
@@ -113,17 +106,12 @@ class PostControl extends React.Component {
   handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToUpvote = this.props.mainPostList[postId];
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToUpvote;
+    const { upvotes, score, id } = postToUpvote;
     const action = {
       type: "UPVOTE",
-      title: title,
-      text: text,
-      timeSubmitted: timeSubmitted,
       upvotes: upvotes,
-      downvotes: downvotes,
       score: score,
       id: id,
-      imageUrl: imageUrl,
     };
     dispatch(action);
   };
@@ -131,17 +119,12 @@ class PostControl extends React.Component {
   handleDownvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToDownvote = this.props.mainPostList[postId];
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToDownvote;
+    const { downvotes, score, id } = postToDownvote;
     const action = {
       type: "DOWNVOTE",
-      title: title,
-      text: text,
-      timeSubmitted: timeSubmitted,
-      upvotes: upvotes,
       downvotes: downvotes,
       score: score,
       id: id,
-      imageUrl: imageUrl,
     };
     dispatch(action);
   };
@@ -223,12 +206,12 @@ PostControl = connect(mapStateToProps)(PostControl);
 
 export default PostControl;
 
-// handleEditingPostInList = (postToEdit) => {
+// handleUpvoteClick = (postId) => {
 //   const { dispatch } = this.props;
-//   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
-//   // const { title, text, id, imageUrl } = postToEdit;
+//   const postToUpvote = this.props.mainPostList[postId];
+//   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToUpvote;
 //   const action = {
-//     type: "EDIT_POST",
+//     type: "UPVOTE",
 //     title: title,
 //     text: text,
 //     timeSubmitted: timeSubmitted,
@@ -239,11 +222,4 @@ export default PostControl;
 //     imageUrl: imageUrl,
 //   };
 //   dispatch(action);
-//   const action2 = {
-//     type: "EDIT_FORM_TOGGLE",
-//   };
-//   dispatch(action2);
-//   this.setState({
-//     selected: null,
-//   });
 // };

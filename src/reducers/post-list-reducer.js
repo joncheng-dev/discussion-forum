@@ -19,84 +19,36 @@ const reducer = (state = {}, action) => {
       delete newState[id];
       return newState;
     case "EDIT_POST":
-      return Object.assign({}, state, {
+      return {
+        ...state,
         [id]: {
-          title: action.title,
-          text: action.text,
-          timeSubmitted: timeSubmitted,
-          upvotes: upvotes,
-          downvotes: downvotes,
-          score: score,
-          id: id,
-          imageUrl: action.imageUrl,
-        },
-      });
-    case "UPVOTE":
-      return Object.assign({}, state, {
-        [id]: {
+          ...state[id],
           title: title,
           text: text,
-          timeSubmitted: timeSubmitted,
-          upvotes: upvotes + 1,
-          downvotes: downvotes,
-          score: score + 1,
-          id: id,
           imageUrl: imageUrl,
         },
-      });
-    case "DOWNVOTE":
-      return Object.assign({}, state, {
+      };
+    case "UPVOTE":
+      return {
+        ...state,
         [id]: {
-          title: title,
-          text: text,
-          timeSubmitted: timeSubmitted,
-          upvotes: upvotes,
+          ...state[id],
+          upvotes: upvotes + 1,
+          score: score + 1,
+        },
+      };
+    case "DOWNVOTE":
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
           downvotes: downvotes + 1,
           score: score - 1,
-          id: id,
-          imageUrl: imageUrl,
         },
-      });
+      };
     default:
       return state;
   }
 };
 
 export default reducer;
-
-// case "EDIT_POST":
-//   return {
-//     ...state,
-//     [id]: {
-//       title: action.title,
-//       text: action.text,
-//       imageUrl: action.imageUrl,
-//       ...state[id],
-//     },
-//   };
-// case "UPVOTE":
-//   return Object.assign({}, state, {
-//     [id]: {
-//       title: title,
-//       text: text,
-//       timeSubmitted: timeSubmitted,
-//       upvotes: upvotes + 1,
-//       downvotes: downvotes,
-//       score: score + 1,
-//       id: id,
-//       imageUrl: imageUrl,
-//     },
-//   });
-// case "DOWNVOTE":
-//   return Object.assign({}, state, {
-//     [id]: {
-//       title: title,
-//       text: text,
-//       timeSubmitted: timeSubmitted,
-//       upvotes: upvotes,
-//       downvotes: downvotes + 1,
-//       score: score - 1,
-//       id: id,
-//       imageUrl: imageUrl,
-//     },
-//   });
