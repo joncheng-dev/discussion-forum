@@ -76,7 +76,6 @@ class PostControl extends React.Component {
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
     const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
-    // const { title, text, id, imageUrl } = postToEdit;
     const action = {
       type: "EDIT_POST",
       title: title,
@@ -88,6 +87,7 @@ class PostControl extends React.Component {
       id: id,
       imageUrl: imageUrl,
     };
+    console.log("Action before dispatch:", action);
     dispatch(action);
     const action2 = {
       type: "EDIT_FORM_TOGGLE",
@@ -151,7 +151,7 @@ class PostControl extends React.Component {
     let buttonText = null;
 
     if (this.props.editing) {
-      currentlyDisplayed = <EditPostForm post={this.state.selected} onEditPost={this.handleEditingPostInList} />;
+      currentlyDisplayed = <EditPostForm postId={this.state.selected} onEditPost={this.handleEditingPostInList} />;
       buttonText = "Return to Posts";
     } else if (this.state.selected !== null) {
       currentlyDisplayed = (
@@ -222,3 +222,28 @@ const mapStateToProps = (state) => {
 PostControl = connect(mapStateToProps)(PostControl);
 
 export default PostControl;
+
+// handleEditingPostInList = (postToEdit) => {
+//   const { dispatch } = this.props;
+//   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToEdit;
+//   // const { title, text, id, imageUrl } = postToEdit;
+//   const action = {
+//     type: "EDIT_POST",
+//     title: title,
+//     text: text,
+//     timeSubmitted: timeSubmitted,
+//     upvotes: upvotes,
+//     downvotes: downvotes,
+//     score: score,
+//     id: id,
+//     imageUrl: imageUrl,
+//   };
+//   dispatch(action);
+//   const action2 = {
+//     type: "EDIT_FORM_TOGGLE",
+//   };
+//   dispatch(action2);
+//   this.setState({
+//     selected: null,
+//   });
+// };
