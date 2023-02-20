@@ -12,4 +12,28 @@ describe("Discussion Forum actions", () => {
       type: "TOGGLE_FORM",
     });
   });
+  it("addPost should create ADD_TICKET action", () => {
+    expect(
+      actions.addPost({
+        title: "How rare is this cat?",
+        text: "Cat found with 5 toes on each paw!",
+        timeSubmitted: 1672731107482,
+        upvotes: 0,
+        downvotes: 0,
+        score: 0,
+        id: 1,
+        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+      })
+    ).toEqual({
+      type: "ADD_POST",
+      title: "How rare is this cat?",
+      text: "Cat found with 5 toes on each paw!",
+      timeSubmitted: 1672731107482,
+      upvotes: 0,
+      downvotes: 0,
+      score: 0,
+      id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+    });
+  });
 });
