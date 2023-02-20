@@ -88,14 +88,14 @@ describe("postListReducer", () => {
     });
   });
   test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
-    const { upvotes, score, id } = currentState;
-    action = {
+    const { upvotes, score, id } = currentState[1];
+    let action2 = {
       type: "UPVOTE",
       upvotes: upvotes,
       score: score,
       id: id,
     };
-    expect(postListReducer(currentState, action)).toEqual({
+    expect(postListReducer(currentState, action2)).toEqual({
       1: {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
