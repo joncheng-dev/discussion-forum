@@ -12,6 +12,11 @@ describe("Discussion Forum actions", () => {
       type: "TOGGLE_FORM",
     });
   });
+  it("editFormToggle should create EDIT_FORM_TOGGLE action", () => {
+    expect(actions.editFormToggle()).toEqual({
+      type: "EDIT_FORM_TOGGLE",
+    });
+  });
   it("addPost should create ADD_TICKET action", () => {
     expect(
       actions.addPost({
@@ -36,4 +41,9 @@ describe("Discussion Forum actions", () => {
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     });
   });
+  // it("upvotePost should create UPVOTE action", () => {
+  //   expect(actions.upvote({})).toEqual({
+  //     type: "UPVOTE",
+  //   });
+  // });
 });

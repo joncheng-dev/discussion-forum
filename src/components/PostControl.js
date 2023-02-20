@@ -5,6 +5,7 @@ import PostDetail from "./PostDetail";
 import EditPostForm from "./EditPostForm";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import * as a from "./../actions";
 
 class PostControl extends React.Component {
   constructor(props) {
@@ -17,9 +18,7 @@ class PostControl extends React.Component {
   handleClick = () => {
     const { dispatch } = this.props;
     if (this.props.editing) {
-      const action = {
-        type: "EDIT_FORM_TOGGLE",
-      };
+      const action = a.editFormToggle();
       dispatch(action);
       this.setState({
         selected: null,
@@ -29,31 +28,16 @@ class PostControl extends React.Component {
         selected: null,
       });
     } else {
-      const action = {
-        type: "TOGGLE_FORM",
-      };
+      const action = a.toggleForm();
       dispatch(action);
     }
   };
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = newPost;
-    const action = {
-      type: "ADD_POST",
-      title: title,
-      text: text,
-      timeSubmitted: timeSubmitted,
-      upvotes: upvotes,
-      downvotes: downvotes,
-      score: score,
-      id: id,
-      imageUrl: imageUrl,
-    };
+    const action = a.addPost(newPost);
     dispatch(action);
-    const action2 = {
-      type: "TOGGLE_FORM",
-    };
+    const action2 = a.toggleForm();
     dispatch(action2);
   };
 
@@ -65,9 +49,7 @@ class PostControl extends React.Component {
 
   handleEditClick = () => {
     const { dispatch } = this.props;
-    const action = {
-      type: "EDIT_FORM_TOGGLE",
-    };
+    const action = a.editFormToggle();
     dispatch(action);
   };
 
@@ -82,9 +64,7 @@ class PostControl extends React.Component {
       imageUrl: imageUrl,
     };
     dispatch(action);
-    const action2 = {
-      type: "EDIT_FORM_TOGGLE",
-    };
+    const action2 = a.editFormToggle();
     dispatch(action2);
     this.setState({
       selected: null,
@@ -93,10 +73,7 @@ class PostControl extends React.Component {
 
   handleDeletingPost = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: "DELETE_POST",
-      id: id,
-    };
+    const action = a.deletePost(id);
     dispatch(action);
     this.setState({
       selected: null,
@@ -209,17 +186,12 @@ export default PostControl;
 // handleUpvoteClick = (postId) => {
 //   const { dispatch } = this.props;
 //   const postToUpvote = this.props.mainPostList[postId];
-//   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postToUpvote;
+//   const { upvotes, score, id } = postToUpvote;
 //   const action = {
 //     type: "UPVOTE",
-//     title: title,
-//     text: text,
-//     timeSubmitted: timeSubmitted,
 //     upvotes: upvotes,
-//     downvotes: downvotes,
 //     score: score,
 //     id: id,
-//     imageUrl: imageUrl,
 //   };
 //   dispatch(action);
 // };

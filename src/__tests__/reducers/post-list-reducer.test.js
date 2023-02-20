@@ -119,30 +119,3 @@ describe("postListReducer", () => {
     });
   });
 });
-
-// test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
-//   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
-//   action = {
-//     type: "UPVOTE",
-//     title: title,
-//     text: text,
-//     timeSubmitted: timeSubmitted,
-//     upvotes: upvotes,
-//     downvotes: downvotes,
-//     score: score,
-//     id: id,
-//     imageUrl: imageUrl,
-//   };
-//   expect(postListReducer({}, action)).toEqual({
-//     [id]: {
-//       title: title,
-//       text: text,
-//       timeSubmitted: timeSubmitted,
-//       upvotes: upvotes + 1,
-//       downvotes: downvotes,
-//       score: score + 1,
-//       id: id,
-//       imageUrl: imageUrl,
-//     },
-//   });
-// });
