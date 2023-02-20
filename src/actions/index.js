@@ -1,1 +1,4 @@
-import * as c from "./ActionTypes";
+export const deletePost = (id) => ({
+  type: "DELETE_POST",
+  id,
+});
