@@ -73,16 +73,23 @@ class PostControl extends React.Component {
     });
   };
 
+  // handleUpvoteClick = (postId) => {
+  //   const { dispatch } = this.props;
+  //   const postToUpvote = this.props.mainPostList[postId];
+  //   const { upvotes, score, id } = postToUpvote;
+  //   const action = {
+  //     type: "UPVOTE",
+  //     upvotes: upvotes,
+  //     score: score,
+  //     id: id,
+  //   };
+  //   dispatch(action);
+  // };
+
   handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToUpvote = this.props.mainPostList[postId];
-    const { upvotes, score, id } = postToUpvote;
-    const action = {
-      type: "UPVOTE",
-      upvotes: upvotes,
-      score: score,
-      id: id,
-    };
+    const action = a.upvote(postToUpvote);
     dispatch(action);
   };
 

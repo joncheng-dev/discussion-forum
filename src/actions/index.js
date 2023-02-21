@@ -37,12 +37,12 @@ export const editPost = (post) => {
   };
 };
 
-// export const upvote = (postId) => {
-//   const { upvotes, score, id } = objectList[postId];
-//   return {
-//     type: "UPVOTE",
-//     upvotes: upvotes + 1,
-//     score: score + 1,
-//     id,
-//   };
-// };
+export const upvote = (postToUpvote) => {
+  const { upvotes, score, id } = postToUpvote;
+  return {
+    type: "UPVOTE",
+    upvotes: upvotes,
+    score: score,
+    id: id,
+  };
+};

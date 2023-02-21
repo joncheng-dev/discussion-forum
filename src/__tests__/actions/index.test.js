@@ -73,9 +73,13 @@ describe("Discussion Forum actions", () => {
       imageUrl: imageUrl,
     });
   });
-  // it("upvotePost should create UPVOTE action", () => {
-  //   expect(actions.upvote({})).toEqual({
-  //     type: "UPVOTE",
-  //   });
-  // });
+  it("upvotePost should create UPVOTE action", () => {
+    const { upvotes, score, id } = currentState[1];
+    expect(actions.upvote(currentState[1])).toEqual({
+      type: "UPVOTE",
+      upvotes: upvotes,
+      score: score,
+      id: id,
+    });
+  });
 });
