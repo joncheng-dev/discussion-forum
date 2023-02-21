@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/discussion-forum/static/js/main.b52b1ae6.js",
+    "main.js": "/discussion-forum/static/js/main.a6806556.js",
     "index.html": "/discussion-forum/index.html",
-    "main.b52b1ae6.js.map": "/discussion-forum/static/js/main.b52b1ae6.js.map"
+    "main.a6806556.js.map": "/discussion-forum/static/js/main.a6806556.js.map"
   },
   "entrypoints": [
-    "static/js/main.b52b1ae6.js"
+    "static/js/main.a6806556.js"
   ]
 }
