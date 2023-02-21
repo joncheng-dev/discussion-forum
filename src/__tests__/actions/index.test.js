@@ -1,20 +1,21 @@
 import * as actions from "./../../actions";
+import * as c from "./../../actions/ActionTypes";
 
 describe("Discussion Forum actions", () => {
   it("deletePost should create DELETE_POST action", () => {
     expect(actions.deletePost(1)).toEqual({
-      type: "DELETE_POST",
+      type: c.DELETE_POST,
       id: 1,
     });
   });
   it("toggleForm should create TOGGLE_FORM action", () => {
     expect(actions.toggleForm()).toEqual({
-      type: "TOGGLE_FORM",
+      type: c.TOGGLE_FORM,
     });
   });
   it("editFormToggle should create EDIT_FORM_TOGGLE action", () => {
     expect(actions.editFormToggle()).toEqual({
-      type: "EDIT_FORM_TOGGLE",
+      type: c.EDIT_FORM_TOGGLE,
     });
   });
   it("addPost should create ADD_TICKET action", () => {
@@ -30,7 +31,7 @@ describe("Discussion Forum actions", () => {
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       })
     ).toEqual({
-      type: "ADD_POST",
+      type: c.ADD_POST,
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
       timeSubmitted: 1672731107482,
@@ -66,7 +67,7 @@ describe("Discussion Forum actions", () => {
   it("editPost should create EDIT_POST action", () => {
     const { title, text, id, imageUrl } = currentState[1];
     expect(actions.editPost(currentState[1])).toEqual({
-      type: "EDIT_POST",
+      type: c.EDIT_POST,
       title: title,
       text: text,
       id: id,
@@ -76,7 +77,7 @@ describe("Discussion Forum actions", () => {
   it("upvote should create UPVOTE action", () => {
     const { upvotes, score, id } = currentState[1];
     expect(actions.upvote(currentState[1])).toEqual({
-      type: "UPVOTE",
+      type: c.UPVOTE,
       upvotes: upvotes,
       score: score,
       id: id,
@@ -85,7 +86,7 @@ describe("Discussion Forum actions", () => {
   it("downvote should create DOWNVOTE action", () => {
     const { downvotes, score, id } = currentState[1];
     expect(actions.downvote(currentState[1])).toEqual({
-      type: "DOWNVOTE",
+      type: c.DOWNVOTE,
       downvotes: downvotes,
       score: score,
       id: id,

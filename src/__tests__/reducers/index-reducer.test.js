@@ -3,6 +3,7 @@ import { createStore } from "redux";
 import formVisibleReducer from "../../reducers/form-visible-reducer";
 import postListReducer from "../../reducers/post-list-reducer";
 import formEditReducer from "../../reducers/form-edit-reducer";
+import * as c from "./../../actions/ActionTypes";
 
 let store = createStore(rootReducer);
 
@@ -25,7 +26,7 @@ describe("rootReducer", () => {
   });
   test("Check that ADD_POST action works for postListReducer and root reducer", () => {
     const action = {
-      type: "ADD_POST",
+      type: c.ADD_POST,
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
       timeSubmitted: 1672731107482,
@@ -40,7 +41,7 @@ describe("rootReducer", () => {
   });
   test("Check that ADD_POST action works for postListReducer and root reducer - 2nd post", () => {
     const action = {
-      type: "ADD_POST",
+      type: c.ADD_POST,
       title: "Puppy sitting in the snow",
       text: "Adorable golden retriever puppy",
       timeSubmitted: 1672731119244,
@@ -55,7 +56,7 @@ describe("rootReducer", () => {
   });
   test("Check that TOGGLE_FORM action works for formVisibleReducer and root reducer", () => {
     const action = {
-      type: "TOGGLE_FORM",
+      type: c.TOGGLE_FORM,
     };
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
@@ -85,7 +86,7 @@ describe("rootReducer", () => {
     };
     const { upvotes, score, id } = currentState[1];
     const action = {
-      type: "UPVOTE",
+      type: c.UPVOTE,
       upvotes: upvotes,
       score: score,
       id: id,

@@ -1,4 +1,5 @@
 import postListReducer from "../../reducers/post-list-reducer";
+import * as c from "./../../actions/ActionTypes";
 
 describe("postListReducer", () => {
   let action;
@@ -45,7 +46,7 @@ describe("postListReducer", () => {
   test("Should successfully add new post data to mainPostList", () => {
     const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
     action = {
-      type: "ADD_POST",
+      type: c.ADD_POST,
       title: title,
       text: text,
       timeSubmitted: timeSubmitted,
@@ -71,7 +72,7 @@ describe("postListReducer", () => {
 
   test("Should successfully delete a post", () => {
     action = {
-      type: "DELETE_POST",
+      type: c.DELETE_POST,
       id: 1,
     };
     expect(postListReducer(currentState, action)).toEqual({
@@ -90,7 +91,7 @@ describe("postListReducer", () => {
   test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
     const { upvotes, score, id } = currentState[1];
     let action2 = {
-      type: "UPVOTE",
+      type: c.UPVOTE,
       upvotes: upvotes,
       score: score,
       id: id,

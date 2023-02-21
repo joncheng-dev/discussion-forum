@@ -1,6 +1,8 @@
+import * as c from "./../actions/ActionTypes";
+
 const reducer = (state = false, action) => {
   switch (action.type) {
-    case "EDIT_FORM_TOGGLE":
+    case c.EDIT_FORM_TOGGLE:
       return !state;
     default:
       return state;

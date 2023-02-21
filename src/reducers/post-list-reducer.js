@@ -1,7 +1,9 @@
+import * as c from "./../actions/ActionTypes";
+
 const reducer = (state = {}, action) => {
   const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = action;
   switch (action.type) {
-    case "ADD_POST":
+    case c.ADD_POST:
       return Object.assign({}, state, {
         [id]: {
           title: title,
@@ -14,11 +16,11 @@ const reducer = (state = {}, action) => {
           imageUrl: imageUrl,
         },
       });
-    case "DELETE_POST":
+    case c.DELETE_POST:
       const newState = { ...state };
       delete newState[id];
       return newState;
-    case "EDIT_POST":
+    case c.EDIT_POST:
       return {
         ...state,
         [id]: {
@@ -28,7 +30,7 @@ const reducer = (state = {}, action) => {
           imageUrl: imageUrl,
         },
       };
-    case "UPVOTE":
+    case c.UPVOTE:
       return {
         ...state,
         [id]: {
@@ -37,7 +39,7 @@ const reducer = (state = {}, action) => {
           score: score + 1,
         },
       };
-    case "DOWNVOTE":
+    case c.DOWNVOTE:
       return {
         ...state,
         [id]: {
