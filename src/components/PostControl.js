@@ -73,19 +73,6 @@ class PostControl extends React.Component {
     });
   };
 
-  // handleUpvoteClick = (postId) => {
-  //   const { dispatch } = this.props;
-  //   const postToUpvote = this.props.mainPostList[postId];
-  //   const { upvotes, score, id } = postToUpvote;
-  //   const action = {
-  //     type: "UPVOTE",
-  //     upvotes: upvotes,
-  //     score: score,
-  //     id: id,
-  //   };
-  //   dispatch(action);
-  // };
-
   handleUpvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToUpvote = this.props.mainPostList[postId];
@@ -96,13 +83,7 @@ class PostControl extends React.Component {
   handleDownvoteClick = (postId) => {
     const { dispatch } = this.props;
     const postToDownvote = this.props.mainPostList[postId];
-    const { downvotes, score, id } = postToDownvote;
-    const action = {
-      type: "DOWNVOTE",
-      downvotes: downvotes,
-      score: score,
-      id: id,
-    };
+    const action = a.downvote(postToDownvote);
     dispatch(action);
   };
 
@@ -181,16 +162,3 @@ const mapStateToProps = (state) => {
 PostControl = connect(mapStateToProps)(PostControl);
 
 export default PostControl;
-
-// handleUpvoteClick = (postId) => {
-//   const { dispatch } = this.props;
-//   const postToUpvote = this.props.mainPostList[postId];
-//   const { upvotes, score, id } = postToUpvote;
-//   const action = {
-//     type: "UPVOTE",
-//     upvotes: upvotes,
-//     score: score,
-//     id: id,
-//   };
-//   dispatch(action);
-// };

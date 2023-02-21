@@ -46,3 +46,13 @@ export const upvote = (postToUpvote) => {
     id: id,
   };
 };
+
+export const downvote = (postToDownvote) => {
+  const { downvotes, score, id } = postToDownvote;
+  return {
+    type: "DOWNVOTE",
+    downvotes: downvotes,
+    score: score,
+    id: id,
+  };
+};

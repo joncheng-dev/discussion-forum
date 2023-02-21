@@ -73,11 +73,20 @@ describe("Discussion Forum actions", () => {
       imageUrl: imageUrl,
     });
   });
-  it("upvotePost should create UPVOTE action", () => {
+  it("upvote should create UPVOTE action", () => {
     const { upvotes, score, id } = currentState[1];
     expect(actions.upvote(currentState[1])).toEqual({
       type: "UPVOTE",
       upvotes: upvotes,
+      score: score,
+      id: id,
+    });
+  });
+  it("downvote should create DOWNVOTE action", () => {
+    const { downvotes, score, id } = currentState[1];
+    expect(actions.downvote(currentState[1])).toEqual({
+      type: "DOWNVOTE",
+      downvotes: downvotes,
       score: score,
       id: id,
     });
