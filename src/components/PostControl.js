@@ -55,14 +55,7 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { title, text, id, imageUrl } = postToEdit;
-    const action = {
-      type: "EDIT_POST",
-      title: title,
-      text: text,
-      id: id,
-      imageUrl: imageUrl,
-    };
+    const action = a.editPost(postToEdit);
     dispatch(action);
     const action2 = a.editFormToggle();
     dispatch(action2);
@@ -172,7 +165,6 @@ const mapStateToProps = (state) => {
   // const orderedPostList = state.mainPostList.score.sort((a, b) => (a.score > b.score ? 1 : -1));
 
   return {
-    // mainPostList: orderedPostList,
     mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage,
     editing: state.editing,

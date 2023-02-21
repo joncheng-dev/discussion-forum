@@ -41,6 +41,38 @@ describe("Discussion Forum actions", () => {
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     });
   });
+  const currentState = {
+    1: {
+      title: "How rare is this cat?",
+      text: "Cat found with 5 toes on each paw!",
+      timeSubmitted: 1672731107482,
+      upvotes: 0,
+      downvotes: 0,
+      score: 0,
+      id: 1,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+    },
+    2: {
+      title: "Dog being derp!",
+      text: "Dog in the snow",
+      timeSubmitted: 1672731119244,
+      upvotes: 0,
+      downvotes: 0,
+      score: 0,
+      id: 2,
+      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+    },
+  };
+  it("editPost should create EDIT_POST action", () => {
+    const { title, text, id, imageUrl } = currentState[1];
+    expect(actions.editPost(currentState[1])).toEqual({
+      type: "EDIT_POST",
+      title: title,
+      text: text,
+      id: id,
+      imageUrl: imageUrl,
+    });
+  });
   // it("upvotePost should create UPVOTE action", () => {
   //   expect(actions.upvote({})).toEqual({
   //     type: "UPVOTE",

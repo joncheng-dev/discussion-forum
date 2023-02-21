@@ -26,6 +26,17 @@ export const addPost = (post) => {
   };
 };
 
+export const editPost = (post) => {
+  const { title, text, id, imageUrl } = post;
+  return {
+    type: "EDIT_POST",
+    title: title,
+    text: text,
+    id: id,
+    imageUrl: imageUrl,
+  };
+};
+
 // export const upvote = (postId) => {
 //   const { upvotes, score, id } = objectList[postId];
 //   return {
