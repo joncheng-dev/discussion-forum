@@ -5,20 +5,18 @@ import { formatDistanceToNow } from "date-fns";
 describe("postListReducer", () => {
   let action;
   const postData = {
-    1: {
-      title: "How rare is this cat?",
-      text: "Cat found with 5 toes on each paw!",
-      timeSubmitted: 1672731107482,
-      upvotes: 0,
-      downvotes: 0,
-      score: 0,
-      timeOpen: new Date(),
-      formattedWaitTime: formatDistanceToNow(new Date(), {
-        addSuffix: true,
-      }),
-      id: 1,
-      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
-    },
+    title: "How rare is this cat?",
+    text: "Cat found with 5 toes on each paw!",
+    timeSubmitted: 1672731107482,
+    upvotes: 0,
+    downvotes: 0,
+    score: 0,
+    timeOpen: new Date(),
+    formattedWaitTime: formatDistanceToNow(new Date(), {
+      addSuffix: true,
+    }),
+    id: 1,
+    imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
   };
 
   const currentState = {
