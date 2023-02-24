@@ -1,7 +1,7 @@
 import * as c from "./../actions/ActionTypes";
 
 const reducer = (state = {}, action) => {
-  const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = action;
+  const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = action;
   switch (action.type) {
     case c.ADD_POST:
       return Object.assign({}, state, {
@@ -48,6 +48,12 @@ const reducer = (state = {}, action) => {
           score: score - 1,
         },
       };
+    case c.UPDATE_TIME:
+      const newTicket = Object.assign({}, state[id], { formattedWaitTime });
+      const updatedState = Object.assign({}, state, {
+        [id]: newTicket,
+      });
+      return updatedState;
     default:
       return state;
   }

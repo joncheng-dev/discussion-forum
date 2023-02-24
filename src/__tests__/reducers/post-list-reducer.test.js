@@ -1,5 +1,6 @@
 import postListReducer from "../../reducers/post-list-reducer";
 import * as c from "./../../actions/ActionTypes";
+import { formatDistanceToNow } from "date-fns";
 
 describe("postListReducer", () => {
   let action;
@@ -11,6 +12,10 @@ describe("postListReducer", () => {
       upvotes: 0,
       downvotes: 0,
       score: 0,
+      timeOpen: new Date(),
+      formattedWaitTime: formatDistanceToNow(new Date(), {
+        addSuffix: true,
+      }),
       id: 1,
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     },
@@ -116,6 +121,28 @@ describe("postListReducer", () => {
         score: 0,
         id: 2,
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+      },
+    });
+  });
+  test("Should add a formatted wait time to ticket entry", () => {
+    const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, id, imageUrl } = postData;
+    action = {
+      type: c.UPDATE_TIME,
+      formattedWaitTime: "4 minutes ago",
+      id: id,
+    };
+    expect(postListReducer({ [id]: postData }, action)).toEqual({
+      [id]: {
+        title: title,
+        text: text,
+        timeSubmitted: timeSubmitted,
+        upvotes: upvotes,
+        downvotes: downvotes,
+        score: score,
+        timeOpen: timeOpen,
+        formattedWaitTime: "4 minutes ago",
+        id: id,
+        imageUrl: imageUrl,
       },
     });
   });
