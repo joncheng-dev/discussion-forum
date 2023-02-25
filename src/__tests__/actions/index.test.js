@@ -92,4 +92,11 @@ describe("Discussion Forum actions", () => {
       id: id,
     });
   });
+  it("updateTime should create UPDATE_TIME action", () => {
+    expect(actions.updateTime(1, "less than a minute ago")).toEqual({
+      type: c.UPDATE_TIME,
+      id: 1,
+      formattedWaitTime: "less than a minute ago",
+    });
+  });
 });

@@ -14,7 +14,7 @@ export const editFormToggle = () => ({
 });
 
 export const addPost = (post) => {
-  const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = post;
+  const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = post;
   return {
     type: c.ADD_POST,
     title: title,
@@ -23,6 +23,8 @@ export const addPost = (post) => {
     upvotes: upvotes,
     downvotes: downvotes,
     score: score,
+    timeOpen: timeOpen,
+    formattedWaitTime: formattedWaitTime,
     id: id,
     imageUrl: imageUrl,
   };
@@ -58,3 +60,9 @@ export const downvote = (postToDownvote) => {
     id: id,
   };
 };
+
+export const updateTime = (id, formattedWaitTime) => ({
+  type: c.UPDATE_TIME,
+  id: id,
+  formattedWaitTime: formattedWaitTime,
+});
