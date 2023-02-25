@@ -17,6 +17,7 @@ function PostList(props) {
           upvotes={post.upvotes}
           downvotes={post.downvotes}
           score={post.score}
+          formattedWaitTime={post.formattedWaitTime}
           id={post.id}
           key={post.id}
           imageUrl={post.imageUrl}

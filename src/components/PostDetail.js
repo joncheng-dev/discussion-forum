@@ -86,7 +86,7 @@ function PostDetail(props) {
             <img className="post-image" src={post.imageUrl} alt="" />
             <p>{post.text}</p>
             <p>
-              <em>{timeSince(post.timeSubmitted)}</em>
+              <em>{post.formattedWaitTime}</em>
             </p>
           </div>
         </div>

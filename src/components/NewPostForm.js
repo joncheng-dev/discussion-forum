@@ -2,6 +2,7 @@ import React from "react";
 import { v4 } from "uuid";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
+import { formatDistanceToNow } from "date-fns";
 
 function NewPostForm(props) {
   function handleNewPostFormSubmission(event) {
@@ -15,6 +16,10 @@ function NewPostForm(props) {
       downvotes: 0,
       score: 0,
       imageUrl: event.target.imageUrl.value,
+      timeOpen: new Date(),
+      formattedWaitTime: formatDistanceToNow(new Date(), {
+        addSuffix: true,
+      }),
       id: v4(),
     });
   }

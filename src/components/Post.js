@@ -96,7 +96,7 @@ function Post(props) {
               <h3>{props.title}</h3>
               <p>{props.text}</p>
               <p>
-                <em>{timeSince(props.timeSubmitted)}</em>
+                <em>{props.formattedWaitTime}</em>
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ Post.propTypes = {
   score: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
-  timeSubmitted: PropTypes.number,
+  formattedWaitTime: PropTypes.string,
 };
 
 export default Post;

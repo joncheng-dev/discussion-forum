@@ -8,10 +8,6 @@ import PropTypes from "prop-types";
 import * as a from "./../actions";
 import { formatDistanceToNow } from "date-fns";
 
-formatDistanceToNow(new Date(), {
-  addSuffix: true,
-});
-
 class PostControl extends React.Component {
   constructor(props) {
     super(props);
@@ -21,8 +17,23 @@ class PostControl extends React.Component {
   }
 
   componentDidMount() {
-    this.waitTimeUpdateTimer = setInterval(() => this.updateTicketElapsedWaitTime(), 1000);
+    this.waitTimeUpdateTimer = setInterval(() => this.updateTicketElapsedWaitTime(), 60000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.waitTimeUpdateTimer);
+  }
+
+  updateTicketElapsedWaitTime = () => {
+    const { dispatch } = this.props;
+    Object.values(this.props.mainPostList).forEach((post) => {
+      const newFormattedWaitTime = formatDistanceToNow(post.timeOpen, {
+        addSuffix: true,
+      });
+      const action = a.updateTime(post.id, newFormattedWaitTime);
+      dispatch(action);
+    });
+  };
 
   handleClick = () => {
     const { dispatch } = this.props;
