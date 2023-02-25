@@ -12,6 +12,8 @@ const reducer = (state = {}, action) => {
           upvotes: upvotes,
           downvotes: downvotes,
           score: score,
+          timeOpen: timeOpen,
+          formattedWaitTime: formattedWaitTime,
           id: id,
           imageUrl: imageUrl,
         },

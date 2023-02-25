@@ -47,7 +47,7 @@ describe("postListReducer", () => {
   });
 
   test("Should successfully add new post data to mainPostList", () => {
-    const { title, text, timeSubmitted, upvotes, downvotes, score, id, imageUrl } = postData;
+    const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = postData;
     action = {
       type: c.ADD_POST,
       title: title,
@@ -56,6 +56,8 @@ describe("postListReducer", () => {
       upvotes: upvotes,
       downvotes: downvotes,
       score: score,
+      timeOpen: timeOpen,
+      formattedWaitTime: formattedWaitTime,
       id: id,
       imageUrl: imageUrl,
     };
@@ -67,6 +69,8 @@ describe("postListReducer", () => {
         upvotes: upvotes,
         downvotes: downvotes,
         score: score,
+        timeOpen: timeOpen,
+        formattedWaitTime: "less than a minute ago",
         id: id,
         imageUrl: imageUrl,
       },
