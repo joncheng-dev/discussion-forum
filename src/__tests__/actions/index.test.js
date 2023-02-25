@@ -27,6 +27,8 @@ describe("Discussion Forum actions", () => {
         upvotes: 0,
         downvotes: 0,
         score: 0,
+        timeOpen: 0,
+        formattedWaitTime: "less than a minute ago",
         id: 1,
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       })
@@ -38,6 +40,8 @@ describe("Discussion Forum actions", () => {
       upvotes: 0,
       downvotes: 0,
       score: 0,
+      timeOpen: 0,
+      formattedWaitTime: "less than a minute ago",
       id: 1,
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     });
