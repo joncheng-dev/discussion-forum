@@ -11,7 +11,6 @@ function NewPostForm(props) {
     props.onNewPostCreation({
       title: event.target.title.value,
       text: event.target.text.value,
-      timeSubmitted: Date.now(),
       upvotes: 0,
       downvotes: 0,
       score: 0,

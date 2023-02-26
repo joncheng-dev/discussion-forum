@@ -23,7 +23,6 @@ describe("Discussion Forum actions", () => {
       actions.addPost({
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
-        timeSubmitted: 1672731107482,
         upvotes: 0,
         downvotes: 0,
         score: 0,
@@ -36,7 +35,6 @@ describe("Discussion Forum actions", () => {
       type: c.ADD_POST,
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
-      timeSubmitted: 1672731107482,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -50,7 +48,6 @@ describe("Discussion Forum actions", () => {
     1: {
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
-      timeSubmitted: 1672731107482,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -60,7 +57,6 @@ describe("Discussion Forum actions", () => {
     2: {
       title: "Dog being derp!",
       text: "Dog in the snow",
-      timeSubmitted: 1672731119244,
       upvotes: 0,
       downvotes: 0,
       score: 0,

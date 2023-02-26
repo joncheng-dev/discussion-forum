@@ -29,7 +29,6 @@ describe("rootReducer", () => {
       type: c.ADD_POST,
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
-      timeSubmitted: 1672731107482,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -44,7 +43,6 @@ describe("rootReducer", () => {
       type: c.ADD_POST,
       title: "Puppy sitting in the snow",
       text: "Adorable golden retriever puppy",
-      timeSubmitted: 1672731119244,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -66,7 +64,6 @@ describe("rootReducer", () => {
       1: {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
-        timeSubmitted: 1672731107482,
         upvotes: 0,
         downvotes: 0,
         score: 0,
@@ -76,7 +73,6 @@ describe("rootReducer", () => {
       2: {
         title: "Puppy sitting in the snow",
         text: "Adorable golden retriever puppy",
-        timeSubmitted: 1672731119244,
         upvotes: 0,
         downvotes: 0,
         score: 0,

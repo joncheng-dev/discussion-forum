@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import timeSince from "./time-since";
 import PropTypes from "prop-types";
 
 const PostStyle = styled.div`

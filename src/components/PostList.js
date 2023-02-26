@@ -13,7 +13,6 @@ function PostList(props) {
           whenPostClicked={props.onPostSelection}
           title={post.title}
           text={post.text}
-          timeSubmitted={post.timeSubmitted}
           upvotes={post.upvotes}
           downvotes={post.downvotes}
           score={post.score}

@@ -14,12 +14,11 @@ export const editFormToggle = () => ({
 });
 
 export const addPost = (post) => {
-  const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = post;
+  const { title, text, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = post;
   return {
     type: c.ADD_POST,
     title: title,
     text: text,
-    timeSubmitted: timeSubmitted,
     upvotes: upvotes,
     downvotes: downvotes,
     score: score,

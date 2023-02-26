@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function EditPostForm(props) {
   const { postId } = props;
   const post = useSelector((state) => state.mainPostList[postId]);
-  const { timeSubmitted, upvotes, downvotes, score, id, timeOpen, formattedWaitTime } = post;
+  const { upvotes, downvotes, score, id, timeOpen, formattedWaitTime } = post;
 
   function handleEditPostFormSubmission(event) {
     event.preventDefault();
@@ -14,7 +14,6 @@ function EditPostForm(props) {
     props.onEditPost({
       title: event.target.title.value,
       text: event.target.text.value,
-      timeSubmitted: timeSubmitted,
       upvotes: upvotes,
       downvotes: downvotes,
       score: score,

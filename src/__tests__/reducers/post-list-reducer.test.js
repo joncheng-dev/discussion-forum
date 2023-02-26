@@ -7,7 +7,6 @@ describe("postListReducer", () => {
   const postData = {
     title: "How rare is this cat?",
     text: "Cat found with 5 toes on each paw!",
-    timeSubmitted: 1672731107482,
     upvotes: 0,
     downvotes: 0,
     score: 0,
@@ -23,7 +22,6 @@ describe("postListReducer", () => {
     1: {
       title: "How rare is this cat?",
       text: "Cat found with 5 toes on each paw!",
-      timeSubmitted: 1672731107482,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -33,7 +31,6 @@ describe("postListReducer", () => {
     2: {
       title: "Dog being derp!",
       text: "Dog in the snow",
-      timeSubmitted: 1672731119244,
       upvotes: 0,
       downvotes: 0,
       score: 0,
@@ -47,12 +44,11 @@ describe("postListReducer", () => {
   });
 
   test("Should successfully add new post data to mainPostList", () => {
-    const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = postData;
+    const { title, text, upvotes, downvotes, score, timeOpen, formattedWaitTime, id, imageUrl } = postData;
     action = {
       type: c.ADD_POST,
       title: title,
       text: text,
-      timeSubmitted: timeSubmitted,
       upvotes: upvotes,
       downvotes: downvotes,
       score: score,
@@ -65,7 +61,6 @@ describe("postListReducer", () => {
       [id]: {
         title: title,
         text: text,
-        timeSubmitted: timeSubmitted,
         upvotes: upvotes,
         downvotes: downvotes,
         score: score,
@@ -86,7 +81,6 @@ describe("postListReducer", () => {
       2: {
         title: "Dog being derp!",
         text: "Dog in the snow",
-        timeSubmitted: 1672731119244,
         upvotes: 0,
         downvotes: 0,
         score: 0,
@@ -107,7 +101,6 @@ describe("postListReducer", () => {
       1: {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
-        timeSubmitted: 1672731107482,
         upvotes: 1,
         downvotes: 0,
         score: 1,
@@ -117,7 +110,6 @@ describe("postListReducer", () => {
       2: {
         title: "Dog being derp!",
         text: "Dog in the snow",
-        timeSubmitted: 1672731119244,
         upvotes: 0,
         downvotes: 0,
         score: 0,
@@ -127,7 +119,7 @@ describe("postListReducer", () => {
     });
   });
   test("Should add a formatted wait time to ticket entry", () => {
-    const { title, text, timeSubmitted, upvotes, downvotes, score, timeOpen, id, imageUrl } = postData;
+    const { title, text, upvotes, downvotes, score, timeOpen, id, imageUrl } = postData;
     action = {
       type: c.UPDATE_TIME,
       formattedWaitTime: "4 minutes ago",
@@ -137,7 +129,6 @@ describe("postListReducer", () => {
       [id]: {
         title: title,
         text: text,
-        timeSubmitted: timeSubmitted,
         upvotes: upvotes,
         downvotes: downvotes,
         score: score,
