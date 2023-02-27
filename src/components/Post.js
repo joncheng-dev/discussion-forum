@@ -110,7 +110,7 @@ Post.propTypes = {
   whenDownvoteClicked: PropTypes.func,
   whenPostClicked: PropTypes.func,
   id: PropTypes.string,
-  // imageUrl: PropTypes.string,
+  imageUrl: PropTypes.string,
   score: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
