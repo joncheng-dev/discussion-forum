@@ -32,6 +32,8 @@ describe("rootReducer", () => {
       upvotes: 0,
       downvotes: 0,
       score: 0,
+      timeOpen: 0,
+      formattedWaitTime: "less than a minute ago",
       id: 1,
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     };
@@ -46,6 +48,8 @@ describe("rootReducer", () => {
       upvotes: 0,
       downvotes: 0,
       score: 0,
+      timeOpen: 0,
+      formattedWaitTime: "less than a minute ago",
       id: 2,
       imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
     };
@@ -67,6 +71,8 @@ describe("rootReducer", () => {
         upvotes: 0,
         downvotes: 0,
         score: 0,
+        timeOpen: 0,
+        formattedWaitTime: "less than a minute ago",
         id: 1,
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       },
@@ -76,6 +82,8 @@ describe("rootReducer", () => {
         upvotes: 0,
         downvotes: 0,
         score: 0,
+        timeOpen: 0,
+        formattedWaitTime: "less than a minute ago",
         id: 2,
         imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
       },
@@ -89,5 +97,40 @@ describe("rootReducer", () => {
     };
     store.dispatch(action);
     expect(store.getState().mainPostList).toEqual(postListReducer(currentState, action));
+  });
+  test("Check that DOWNVOTE action works for postListReducer and root reducer", () => {
+    const currentState2 = {
+      1: {
+        title: "How rare is this cat?",
+        text: "Cat found with 5 toes on each paw!",
+        upvotes: 0,
+        downvotes: 0,
+        score: 0,
+        timeOpen: 0,
+        formattedWaitTime: "less than a minute ago",
+        id: 1,
+        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+      },
+      2: {
+        title: "Puppy sitting in the snow",
+        text: "Adorable golden retriever puppy",
+        upvotes: 0,
+        downvotes: 0,
+        score: 0,
+        timeOpen: 0,
+        formattedWaitTime: "less than a minute ago",
+        id: 2,
+        imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
+      },
+    };
+    const { downvotes, score, id } = currentState2[1];
+    const action = {
+      type: c.DOWNVOTE,
+      downvotes: downvotes,
+      score: score,
+      id: id,
+    };
+    store.dispatch(action);
+    expect(store.getState().mainPostList).toEqual(postListReducer(currentState2, action));
   });
 });
