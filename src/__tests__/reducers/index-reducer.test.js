@@ -99,13 +99,13 @@ describe("rootReducer", () => {
     expect(store.getState().mainPostList).toEqual(postListReducer(currentState, action));
   });
   test("Check that DOWNVOTE action works for postListReducer and root reducer", () => {
-    const currentState2 = {
+    const currentState = {
       1: {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
-        upvotes: 0,
+        upvotes: 1,
         downvotes: 0,
-        score: 0,
+        score: 1,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 1,
@@ -115,15 +115,15 @@ describe("rootReducer", () => {
         title: "Puppy sitting in the snow",
         text: "Adorable golden retriever puppy",
         upvotes: 0,
-        downvotes: 0,
-        score: 0,
+        downvotes: 1,
+        score: -1,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 2,
         imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
       },
     };
-    const { downvotes, score, id } = currentState2[1];
+    const { downvotes, score, id } = currentState[2];
     const action = {
       type: c.DOWNVOTE,
       downvotes: downvotes,
@@ -131,6 +131,6 @@ describe("rootReducer", () => {
       id: id,
     };
     store.dispatch(action);
-    expect(store.getState().mainPostList).toEqual(postListReducer(currentState2, action));
+    expect(store.getState().mainPostList).toEqual(postListReducer(currentState, action));
   });
 });

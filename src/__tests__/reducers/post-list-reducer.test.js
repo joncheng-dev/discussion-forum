@@ -31,15 +31,15 @@ describe("postListReducer", () => {
       imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
     },
     2: {
-      title: "Dog being derp!",
-      text: "Dog in the snow",
+      title: "Puppy sitting in the snow",
+      text: "Adorable golden retriever puppy",
       upvotes: 0,
       downvotes: 0,
       score: 0,
       timeOpen: 0,
       formattedWaitTime: "less than a minute ago",
       id: 2,
-      imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+      imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
     },
   };
 
@@ -83,20 +83,20 @@ describe("postListReducer", () => {
     };
     expect(postListReducer(currentState, action)).toEqual({
       2: {
-        title: "Dog being derp!",
-        text: "Dog in the snow",
+        title: "Puppy sitting in the snow",
+        text: "Adorable golden retriever puppy",
         upvotes: 0,
         downvotes: 0,
         score: 0,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 2,
-        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+        imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
       },
     });
   });
   test("Should increase number of upvotes by one, increase total score by 1, and update state slice appropriately", () => {
-    const { upvotes, score, id } = currentState[1];
+    const { upvotes, score, id } = currentState[2];
     let action2 = {
       type: c.UPVOTE,
       upvotes: upvotes,
@@ -107,29 +107,29 @@ describe("postListReducer", () => {
       1: {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
-        upvotes: 1,
+        upvotes: 0,
         downvotes: 0,
-        score: 1,
+        score: 0,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 1,
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       },
       2: {
-        title: "Dog being derp!",
-        text: "Dog in the snow",
-        upvotes: 0,
+        title: "Puppy sitting in the snow",
+        text: "Adorable golden retriever puppy",
+        upvotes: 1,
         downvotes: 0,
-        score: 0,
+        score: 1,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 2,
-        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+        imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
       },
     });
   });
   test("Should increase number of downvotes by one, decrease total score by 1, and update state slice appropriately", () => {
-    const { downvotes, score, id } = currentState[1];
+    const { downvotes, score, id } = currentState[2];
     let action2 = {
       type: c.DOWNVOTE,
       downvotes: downvotes,
@@ -141,23 +141,23 @@ describe("postListReducer", () => {
         title: "How rare is this cat?",
         text: "Cat found with 5 toes on each paw!",
         upvotes: 0,
-        downvotes: 1,
-        score: -1,
+        downvotes: 0,
+        score: 0,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 1,
         imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
       },
       2: {
-        title: "Dog being derp!",
-        text: "Dog in the snow",
+        title: "Puppy sitting in the snow",
+        text: "Adorable golden retriever puppy",
         upvotes: 0,
-        downvotes: 0,
-        score: 0,
+        downvotes: 1,
+        score: -1,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 2,
-        imageUrl: "https://www.w3.org/Style/Woolly/woolly-mc.png",
+        imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
       },
     });
   });
