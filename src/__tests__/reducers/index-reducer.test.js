@@ -115,8 +115,8 @@ describe("rootReducer", () => {
         title: "Puppy sitting in the snow",
         text: "Adorable golden retriever puppy",
         upvotes: 0,
-        downvotes: 1,
-        score: -1,
+        downvotes: 0,
+        score: 0,
         timeOpen: 0,
         formattedWaitTime: "less than a minute ago",
         id: 2,
@@ -132,5 +132,16 @@ describe("rootReducer", () => {
     };
     store.dispatch(action);
     expect(store.getState().mainPostList).toEqual(postListReducer(currentState, action));
+  });
+  test("Check that EDIT_POST action works for postListReducer and root reeducer", () => {
+    const action = {
+      type: c.EDIT_POST,
+      title: "Pup in snow",
+      text: "Golden pup",
+      imageUrl: "https://img.freepik.com/free-photo/shot-adorable-white-golden-retriever-puppy-sitting-snow_181624-44122.jpg",
+      id: 2,
+    };
+    store.dispatch(action);
+    expect(store.getState().mainPostList).toEqual(postListReducer(store.getState().mainPostList, action));
   });
 });
