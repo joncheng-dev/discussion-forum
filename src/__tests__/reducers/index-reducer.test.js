@@ -133,7 +133,7 @@ describe("rootReducer", () => {
     store.dispatch(action);
     expect(store.getState().mainPostList).toEqual(postListReducer(currentState, action));
   });
-  test("Check that EDIT_POST action works for postListReducer and root reeducer", () => {
+  test("Check that EDIT_POST action works for postListReducer and root reducer", () => {
     const action = {
       type: c.EDIT_POST,
       title: "Pup in snow",
